@@ -1,65 +1,99 @@
-import Image from "next/image";
+"use client";
+
+import GlowNumber from "./components/GlowNumber";
+import VinylPlayer from "./components/VinylPlayer";
+// import PolaroidPhoto from "./components/PolaroidPhoto";
+// import ScrollHint from "./components/ScrollHint";
+import { motion } from "framer-motion";
+
+const projects = [
+  {
+    digit: "5",
+    color: "purple" as const,
+    href: "/project-5",
+    title: "A Family of Buttons",
+  },
+  // {
+  //   digit: "8",
+  //   color: "mint" as const,
+  //   href: "/project-8",
+  //   title: "Project Two",
+  // },
+  // {
+  //   digit: "1",
+  //   color: "yellow" as const,
+  //   href: "/project-1",
+  //   title: "Project Three",
+  // },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="relative min-h-screen flex flex-col bg-cream overflow-hidden">
+      {/* Polaroid photo — top right (commented out) */}
+      {/* <div className="absolute top-6 right-6 z-10">
+        <PolaroidPhoto />
+      </div> */}
+
+      {/* Welcome message */}
+      <motion.div
+        className="pt-16 sm:pt-20 px-6 text-center"
+        initial={{ opacity: 0, y: -15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+      >
+        <h1 className="font-hand text-2xl sm:text-3xl md:text-4xl text-ink leading-relaxed">
+          welcome to my{" "}
+          <span className="text-warm-gray">CPSC 581</span>{" "}
+          portfolio
+        </h1>
+        <p className="font-hand text-warm-gray text-base sm:text-lg mt-2">
+          human-computer interaction — click a number to explore
+        </p>
+      </motion.div>
+
+      {/* 581 Hero Numbers */}
+      <div className="flex-1 flex items-center justify-center px-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 md:gap-6 lg:gap-10">
+          {projects.map((project, i) => (
+            <GlowNumber
+              key={project.digit}
+              digit={project.digit}
+              color={project.color}
+              href={project.href}
+              projectTitle={project.title}
+              delay={0.5 + i * 0.15}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          ))}
         </div>
-      </main>
+      </div>
+
+      {/* Vinyl Player — bottom left */}
+      <div className="absolute bottom-8 left-6 z-10">
+        <VinylPlayer size="md" />
+      </div>
+
+      {/* Scroll Hint — bottom center (commented out — no scroll behavior yet) */}
+      {/* <div className="pb-10 flex justify-center">
+        <ScrollHint />
+      </div> */}
+
+      {/* Subtle decorative elements */}
+      <motion.div
+        className="absolute top-1/4 left-8 w-2 h-2 rounded-full bg-glow-pink/30"
+        animate={{ y: [0, -20, 0], opacity: [0.3, 0.7, 0.3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute top-1/3 right-12 w-1.5 h-1.5 rounded-full bg-glow-mint/30"
+        animate={{ y: [0, -15, 0], opacity: [0.2, 0.6, 0.2] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
+      <motion.div
+        className="absolute bottom-1/3 left-1/4 w-1 h-1 rounded-full bg-glow-yellow/30"
+        animate={{ y: [0, -12, 0], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
     </div>
   );
 }
