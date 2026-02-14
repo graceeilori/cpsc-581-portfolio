@@ -94,10 +94,6 @@ export default function ProjectPage() {
                 title: "Development",
                 content: (
                     <>
-                        <p className="mb-8">
-                            With our concept finalized, we moved into the development phase, splitting our efforts between design refinement and technical implementation.
-                        </p>
-
                         <h3 className="font-display text-xl sm:text-2xl font-bold text-ink mb-4">
                             Design
                         </h3>
