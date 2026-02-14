@@ -28,7 +28,7 @@ export default function FloatingMusicBadge({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
         >
-            <span className="font-hand text-sm text-ink">
+            <span className="text-sm text-ink">
                 Designed to:{" "}
                 <span className="text-warm-gray">
                     {songName}

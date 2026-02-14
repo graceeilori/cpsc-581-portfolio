@@ -10,6 +10,7 @@ interface GlowNumberProps {
     href: string;
     projectTitle: string;
     delay?: number;
+    disabled?: boolean;
 }
 
 const colorMap = {
@@ -49,6 +50,7 @@ export default function GlowNumber({
     href,
     projectTitle,
     delay = 0,
+    disabled = false,
 }: GlowNumberProps) {
     const router = useRouter();
     const [isHovered, setIsHovered] = useState(false);
@@ -66,10 +68,10 @@ export default function GlowNumber({
     const rotateY = useTransform(springX, [-100, 100], [-10, 10]);
 
     const handleClick = useCallback(() => {
-        if (!isDragging) {
+        if (!isDragging && !disabled) {
             router.push(href);
         }
-    }, [isDragging, href, router]);
+    }, [isDragging, disabled, href, router]);
 
     return (
         <motion.div
@@ -140,15 +142,17 @@ export default function GlowNumber({
                 />
             </motion.div>
 
-            {/* "Click to explore" hint */}
-            <motion.span
-                className="font-hand text-warm-gray-light text-sm mt-2 pointer-events-none"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isHovered ? 0.8 : 0 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-            >
-                click to explore →
-            </motion.span>
+            {/* "Click to explore" hint — only for active projects */}
+            {!disabled && (
+                <motion.span
+                    className="font-hand text-warm-gray-light text-sm mt-2 pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isHovered ? 0.8 : 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                >
+                    click to explore →
+                </motion.span>
+            )}
         </motion.div>
     );
 }

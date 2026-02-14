@@ -30,7 +30,7 @@ export default function ProjectPage() {
             projectSubtitle="Content"
             glowColor="yellow"
             heroImage="https://picsum.photos/seed/hero1/1920/1080"
-            problemSpace={{
+            designChallenge={{
                 title: "The Design Challenge",
                 content: "Content",
                 images: sketchImages,

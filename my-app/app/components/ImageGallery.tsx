@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -14,10 +15,18 @@ interface ImageGalleryProps {
 export default function ImageGallery({ images }: ImageGalleryProps) {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
+    const gridCols = images.length === 1
+        ? "grid-cols-1 max-w-3xl mx-auto"
+        : images.length === 2
+            ? "grid-cols-1 sm:grid-cols-2"
+            : images.length === 4
+                ? "grid-cols-2 md:grid-cols-2"
+                : "grid-cols-2 md:grid-cols-3";
+
     return (
         <>
             {/* Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className={`grid ${gridCols} gap-6`}>
                 {images.map((image, i) => (
                     <motion.div
                         key={i}
@@ -28,11 +37,21 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                         viewport={{ once: true }}
                         onClick={() => setSelectedIndex(i)}
                     >
-                        <div className="aspect-[4/3] bg-neutral-300 rounded-lg overflow-hidden border border-warm-gray-light/20 group-hover:border-warm-gray-light/40 transition-all duration-300 flex items-center justify-center">
-                            <span className="text-neutral-500 text-xs font-medium px-2 text-center">{image.alt}</span>
+                        <div className={`relative ${images.length === 1 ? 'aspect-video' : 'aspect-[4/3]'} bg-neutral-300 rounded-lg overflow-hidden border border-warm-gray-light/20 group-hover:border-warm-gray-light/40 transition-all duration-300 flex items-center justify-center`}>
+                            {image.src ? (
+                                <Image
+                                    src={image.src}
+                                    alt={image.alt}
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    sizes="(max-width: 768px) 50vw, 33vw"
+                                />
+                            ) : (
+                                <span className="text-neutral-500 text-xs font-medium px-2 text-center">{image.alt}</span>
+                            )}
                         </div>
                         {image.caption && (
-                            <p className="font-hand text-warm-gray text-xs sm:text-sm mt-2 text-center">
+                            <p className="text-warm-gray text-xs sm:text-sm mt-2 text-center">
                                 {image.caption}
                             </p>
                         )}
@@ -56,11 +75,21 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="w-full aspect-video bg-neutral-300 rounded-lg flex items-center justify-center">
-                            <span className="text-neutral-500 text-lg font-medium">{images[selectedIndex].alt}</span>
+                        <div className="relative w-full aspect-video bg-neutral-900/50 rounded-lg overflow-hidden flex items-center justify-center">
+                            {images[selectedIndex].src ? (
+                                <Image
+                                    src={images[selectedIndex].src}
+                                    alt={images[selectedIndex].alt}
+                                    fill
+                                    className="object-contain"
+                                    sizes="90vw"
+                                />
+                            ) : (
+                                <span className="text-neutral-500 text-lg font-medium">{images[selectedIndex].alt}</span>
+                            )}
                         </div>
                         {images[selectedIndex].caption && (
-                            <p className="font-hand text-cream text-center mt-4 text-lg">
+                            <p className="text-cream text-center mt-4 text-lg">
                                 {images[selectedIndex].caption}
                             </p>
                         )}

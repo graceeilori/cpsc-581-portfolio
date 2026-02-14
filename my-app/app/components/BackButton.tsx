@@ -14,7 +14,7 @@ export default function BackButton() {
                 href="/"
                 className="
           inline-flex items-center gap-2
-          font-hand text-lg text-warm-gray
+          font-caveat text-lg text-warm-gray
           hover:text-ink transition-colors duration-300
           group
         "

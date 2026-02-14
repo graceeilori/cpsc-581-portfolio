@@ -10,7 +10,7 @@ export default function ScrollHint() {
             animate={{ opacity: 1 }}
             transition={{ delay: 2, duration: 0.8 }}
         >
-            <span className="font-hand text-warm-gray-light text-sm tracking-wide">
+            <span className="font-caveat text-warm-gray-light text-sm tracking-wide">
                 scroll to browse
             </span>
             <motion.div

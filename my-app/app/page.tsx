@@ -1,7 +1,7 @@
 "use client";
 
 import GlowNumber from "./components/GlowNumber";
-import VinylPlayer from "./components/VinylPlayer";
+// import VinylPlayer from "./components/VinylPlayer";
 // import PolaroidPhoto from "./components/PolaroidPhoto";
 // import ScrollHint from "./components/ScrollHint";
 import { motion } from "framer-motion";
@@ -13,18 +13,20 @@ const projects = [
     href: "/project-5",
     title: "A Family of Buttons",
   },
-  // {
-  //   digit: "8",
-  //   color: "mint" as const,
-  //   href: "/project-8",
-  //   title: "Project Two",
-  // },
-  // {
-  //   digit: "1",
-  //   color: "yellow" as const,
-  //   href: "/project-1",
-  //   title: "Project Three",
-  // },
+  {
+    digit: "8",
+    color: "mint" as const,
+    href: "/project-8",
+    title: "Project Two",
+    disabled: true,
+  },
+  {
+    digit: "1",
+    color: "yellow" as const,
+    href: "/project-1",
+    title: "Project Three",
+    disabled: true,
+  },
 ];
 
 export default function Home() {
@@ -42,14 +44,15 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.8 }}
       >
-        <h1 className="font-hand text-2xl sm:text-3xl md:text-4xl text-ink leading-relaxed">
-          welcome to my{" "}
-          <span className="text-warm-gray">CPSC 581</span>{" "}
-          portfolio
+        <h1 className="text-xl sm:text-2xl md:text-3xl text-ink leading-relaxed" style={{ fontFamily: 'var(--font-caveat), cursive' }}>
+          welcome to my CPSC 581
         </h1>
-        <p className="font-hand text-warm-gray text-base sm:text-lg mt-2">
-          human-computer interaction — click a number to explore
-        </p>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl text-ink leading-relaxed" style={{ fontFamily: 'var(--font-caveat), cursive' }}>
+          Human Computer Interaction II portfolio
+        </h1>
+        {/* <p className="font-hand text-warm-gray text-base sm:text-lg mt-2">
+          click a number to explore
+        </p> */}
       </motion.div>
 
       {/* 581 Hero Numbers */}
@@ -63,15 +66,16 @@ export default function Home() {
               href={project.href}
               projectTitle={project.title}
               delay={0.5 + i * 0.15}
+              disabled={project.disabled}
             />
           ))}
         </div>
       </div>
 
-      {/* Vinyl Player — bottom left */}
-      <div className="absolute bottom-8 left-6 z-10">
+      {/* Vinyl Player — bottom left (commented out) */}
+      {/* <div className="absolute bottom-8 left-6 z-10">
         <VinylPlayer size="md" />
-      </div>
+      </div> */}
 
       {/* Scroll Hint — bottom center (commented out — no scroll behavior yet) */}
       {/* <div className="pb-10 flex justify-center">

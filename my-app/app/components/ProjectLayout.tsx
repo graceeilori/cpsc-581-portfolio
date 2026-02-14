@@ -4,11 +4,14 @@ import { motion } from "framer-motion";
 import BackButton from "./BackButton";
 import FloatingMusicBadge from "./FloatingMusicBadge";
 import ImageGallery from "./ImageGallery";
+import VideoPlayer from "./VideoPlayer";
 
 interface ProjectSection {
     title: string;
-    content: string;
+    content: React.ReactNode;
     images?: { src: string; alt: string; caption?: string }[];
+    video?: string;
+    videoCaption?: string;
 }
 
 interface ProjectLayoutProps {
@@ -17,12 +20,14 @@ interface ProjectLayoutProps {
     projectSubtitle: string;
     glowColor: "pink" | "mint" | "yellow" | "purple";
     heroImage: string;
-    problemSpace: ProjectSection;
+    designChallenge: ProjectSection;
     designProcess: ProjectSection;
+    development?: ProjectSection;
     solution: ProjectSection;
     reflection: ProjectSection;
     songName?: string;
     artist?: string;
+    team?: { name: string; role?: string; image?: string }[];
 }
 
 const glowColors = {
@@ -45,12 +50,14 @@ export default function ProjectLayout({
     projectSubtitle,
     glowColor,
     heroImage,
-    problemSpace,
+    designChallenge,
     designProcess,
+    development,
     solution,
     reflection,
     songName,
     artist,
+    team,
 }: ProjectLayoutProps) {
     const colors = glowColors[glowColor];
 
@@ -81,7 +88,7 @@ export default function ProjectLayout({
                         {projectTitle}
                     </motion.h1>
                     <motion.p
-                        className="font-hand text-lg sm:text-xl text-warm-gray mt-3 max-w-xl"
+                        className="text-lg sm:text-xl text-warm-gray mt-3 max-w-xl"
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.6 }}
@@ -95,39 +102,37 @@ export default function ProjectLayout({
             <div className="px-6 sm:px-12 md:px-20 max-w-5xl mx-auto pb-24">
                 {/* Problem Space */}
                 <motion.section
-                    className="py-16"
+                    className="py-10"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
                     transition={sectionTransition}
                 >
-                    <SectionHeader title={problemSpace.title} annotation="the challenge" />
-                    <p className="text-ink-light text-lg leading-relaxed max-w-3xl">
-                        {problemSpace.content}
-                    </p>
-                    {problemSpace.images && problemSpace.images.length > 0 && (
+                    <SectionHeader title={designChallenge.title} />
+                    <div className="text-ink-light text-lg leading-relaxed max-w-3xl">
+                        {designChallenge.content}
+                    </div>
+                    {designChallenge.images && designChallenge.images.length > 0 && (
                         <div className="mt-8">
-                            <ImageGallery images={problemSpace.images} />
+                            <ImageGallery images={designChallenge.images} />
                         </div>
                     )}
                 </motion.section>
 
-                <div className="section-divider" />
-
                 {/* Design Process */}
                 <motion.section
-                    className="py-16"
+                    className="py-10"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
                     transition={sectionTransition}
                 >
-                    <SectionHeader title={designProcess.title} annotation="the messy middle" />
-                    <p className="text-ink-light text-lg leading-relaxed max-w-3xl">
+                    <SectionHeader title={designProcess.title} />
+                    <div className="text-ink-light text-lg leading-relaxed max-w-3xl">
                         {designProcess.content}
-                    </p>
+                    </div>
                     {designProcess.images && designProcess.images.length > 0 && (
                         <div className="mt-8">
                             <ImageGallery images={designProcess.images} />
@@ -135,44 +140,97 @@ export default function ProjectLayout({
                     )}
                 </motion.section>
 
-                <div className="section-divider" />
+                {/* Development (Optional) */}
+                {development && (
+                    <motion.section
+                        className="py-10"
+                        variants={sectionVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-80px" }}
+                        transition={sectionTransition}
+                    >
+                        <SectionHeader title={development.title} />
+                        <div className="text-ink-light text-lg leading-relaxed max-w-3xl">
+                            {development.content}
+                        </div>
+                        {development.video ? (
+                            <div className="mt-8">
+                                <VideoPlayer src={development.video} caption={development.videoCaption} />
+                            </div>
+                        ) : development.images && development.images.length > 0 ? (
+                            <div className="mt-8">
+                                <ImageGallery images={development.images} />
+                            </div>
+                        ) : null}
+                    </motion.section>
+                )}
 
                 {/* Solution */}
                 <motion.section
-                    className="py-16"
+                    className="py-10"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
                     transition={sectionTransition}
                 >
-                    <SectionHeader title={solution.title} annotation="the result" />
-                    <p className="text-ink-light text-lg leading-relaxed max-w-3xl">
+                    <SectionHeader title={solution.title} />
+                    <div className="text-ink-light text-lg leading-relaxed max-w-3xl">
                         {solution.content}
-                    </p>
-                    {solution.images && solution.images.length > 0 && (
+                    </div>
+                    {solution.video ? (
+                        <div className="mt-8">
+                            <VideoPlayer src={solution.video} caption={solution.videoCaption} />
+                        </div>
+                    ) : solution.images && solution.images.length > 0 ? (
                         <div className="mt-8">
                             <ImageGallery images={solution.images} />
                         </div>
-                    )}
+                    ) : null}
                 </motion.section>
-
-                <div className="section-divider" />
 
                 {/* Reflection */}
                 <motion.section
-                    className="py-16"
+                    className="py-10"
                     variants={sectionVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
                     transition={sectionTransition}
                 >
-                    <SectionHeader title={reflection.title} annotation="looking back" />
-                    <p className="text-ink-light text-lg leading-relaxed max-w-3xl">
+                    <SectionHeader title={reflection.title} />
+                    <div className="text-ink-light text-lg leading-relaxed max-w-3xl">
                         {reflection.content}
-                    </p>
+                    </div>
                 </motion.section>
+
+                {/* Team Section */}
+                {team && team.length > 0 && (
+                    <motion.section
+                        className="py-10"
+                        variants={sectionVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-80px" }}
+                        transition={sectionTransition}
+                    >
+                        <SectionHeader title="The Team" />
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                            {team.map((member, index) => (
+                                <div key={index} className="flex flex-col items-center text-center">
+                                    {member.image && (
+                                        <div className="w-24 h-24 rounded-full overflow-hidden mb-4 bg-neutral-200">
+                                            <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                                        </div>
+                                    )}
+                                    <h3 className="font-display text-lg font-bold text-ink">{member.name}</h3>
+                                    {member.role && <p className="text-warm-gray text-sm">{member.role}</p>}
+                                </div>
+                            ))}
+                        </div>
+                    </motion.section>
+                )}
             </div>
 
             {/* Floating music badge */}
@@ -184,18 +242,9 @@ export default function ProjectLayout({
 }
 
 /* ---- Sub-component: Section Header ---- */
-function SectionHeader({
-    title,
-    annotation,
-}: {
-    title: string;
-    annotation: string;
-}) {
+function SectionHeader({ title }: { title: string }) {
     return (
         <div className="mb-8">
-            <span className="font-hand text-warm-gray-light text-sm italic block mb-1">
-        // {annotation}
-            </span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-ink">
                 {title}
             </h2>

@@ -48,7 +48,7 @@ Each project lives in `app/project-{N}/ProjectPage.tsx`. Edit the props passed t
 
 - **projectTitle / projectSubtitle** — displayed in the hero
 - **heroImage** — full-width hero background
-- **problemSpace / designProcess / solution / reflection** — section content + images
+- **designChallenge / designProcess / solution / reflection** — section content + images
 - **songName / artist** — floating music badge text
 
 Replace placeholder images (`picsum.photos` URLs) with your actual project assets.
