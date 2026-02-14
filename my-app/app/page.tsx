@@ -50,9 +50,9 @@ export default function Home() {
         <h1 className="text-2xl sm:text-3xl md:text-4xl text-ink leading-relaxed" style={{ fontFamily: 'var(--font-caveat), cursive' }}>
           Human Computer Interaction II portfolio
         </h1>
-        {/* <p className="font-hand text-warm-gray text-base sm:text-lg mt-2">
+        <p className="font-hand text-warm-gray text-base sm:text-lg mt-2">
           click a number to explore
-        </p> */}
+        </p>
       </motion.div>
 
       {/* 581 Hero Numbers */}
