@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ProjectPage from "./ProjectPage";
 
 export const metadata: Metadata = {
-    title: "Project 1 — CPSC 581 Portfolio",
-    description: "Group Project 3: An HCI case study exploring accessible interaction patterns.",
+    title: "Group Project 1: CPSC 581 Portfolio",
+    description: "An interactive solar system visualization that represents our group as planets ",
 };
 
 export default function Page() {
