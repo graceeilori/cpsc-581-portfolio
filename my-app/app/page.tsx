@@ -119,6 +119,33 @@ function ProjectCard({ project, thumbnailClass }: { project: (typeof allProjects
   );
 }
 
+const bonusRotations = [-8.5, -5, 5];
+
+function BonusCard({ project, rotation }: { project: (typeof bonusProjects)[0]; rotation: number }) {
+  const CardWrapper = project.available ? Link : "div";
+  const cardProps = project.available ? { href: project.href } : {};
+  const cardClass = [styles.card, project.available ? styles.clickable : styles.disabled].join(" ");
+
+  return (
+    <CardWrapper {...(cardProps as any)} className={cardClass}>
+      <div className={styles.bonusThumbnail}>
+        <div className={styles.thumbnailInner}>
+          <BonusThumbnail project={project} />
+        </div>
+        <div
+          className={styles.bonusCardLabel}
+          style={{ "--bonus-rotation": `${rotation}deg` } as React.CSSProperties}
+        >
+          <span className={styles.bonusCardLabelText}>{project.title}</span>
+        </div>
+        {!project.available && (
+          <div className={styles.soonBadge}>Soon</div>
+        )}
+      </div>
+    </CardWrapper>
+  );
+}
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -148,12 +175,11 @@ export default function Home() {
       <motion.div variants={containerVariants} initial="hidden" animate="show">
         <div className={styles.grid}>
           {mainProjects.map((project, i) => {
-            const isLastInRow = (i + 1) % 3 === 0;
             const cellClass = [
               styles.gridCell,
-              !isLastInRow ? styles.borderRight : "",
+              i === 0 ? styles.dividerRight : "",
+              i === 1 ? styles.dividerRightAlt : "",
             ].join(" ");
-
             return (
               <motion.div key={project.id} variants={itemVariants} className={cellClass}>
                 <ProjectCard project={project} thumbnailClass={styles.thumbnail} />
@@ -175,19 +201,11 @@ export default function Home() {
       {/* Bonus Section */}
       <motion.div variants={containerVariants} initial="hidden" animate="show">
         <div className={styles.bonusGrid}>
-          {bonusProjects.map((project, i) => {
-            const isLastInRow = (i + 1) % 3 === 0;
-            const cellClass = [
-              styles.gridCell,
-              !isLastInRow ? styles.borderRight : "",
-            ].join(" ");
-
-            return (
-              <motion.div key={project.id} variants={itemVariants} className={cellClass}>
-                <ProjectCard project={project} thumbnailClass={styles.bonusThumbnail} />
-              </motion.div>
-            );
-          })}
+          {bonusProjects.map((project, i) => (
+            <motion.div key={project.id} variants={itemVariants} className={styles.gridCell}>
+              <BonusCard project={project} rotation={bonusRotations[i]} />
+            </motion.div>
+          ))}
         </div>
       </motion.div>
 
