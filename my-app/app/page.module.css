@@ -1,0 +1,214 @@
+/* Page wrapper */
+.page {
+  min-height: 100vh;
+  background-image: url('/assets/home-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Top Nav */
+.nav {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 18px 36px;
+  border-bottom: 1px solid rgba(107, 73, 58, 1);
+}
+
+.logo {
+  font-family: var(--font-prata), Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 36px;
+  border-bottom: 1px solid rgba(107, 73, 58, 1);
+}
+
+.heroTitle {
+  font-family: var(--font-prata), Georgia, serif;
+  font-size: 64px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.heroSubtitle {
+  font-family: var(--font-ibm-plex-sans), system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--color-text);
+  margin-top: -4px;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: rgba(107, 73, 58, 0.4);
+  margin: 0;
+}
+
+/* Project Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 73px;
+  /* 36px + 1px divider + 36px */
+  margin: 36px;
+}
+
+.gridCell {
+  position: relative;
+}
+
+.gridCell.borderRight::after {
+  content: '';
+  position: absolute;
+  right: -37px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(61, 58, 41, 0.4);
+}
+
+/* Bonus section */
+.bonusGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 36px;
+}
+
+.bonusThumbnail {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 1.4;
+}
+
+/* Card */
+.card {
+  display: block;
+}
+
+.card.clickable {
+  cursor: pointer;
+}
+
+.card.disabled {
+  cursor: default;
+}
+
+.thumbnail {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.thumbnailInner {
+  width: 100%;
+  height: 100%;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bonusImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover overlay */
+.hoverOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .hoverOverlay {
+  opacity: 1;
+}
+
+.hoverLabel {
+  font-family: var(--font-ibm-plex-sans), system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: white;
+  border-bottom: 1px solid white;
+  padding-bottom: 2px;
+}
+
+/* Soon badge */
+.soonBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(230, 225, 209, 0.85);
+  font-family: var(--font-ibm-plex-sans), system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  color: #6b6560;
+}
+
+/* Card title */
+.cardTitle {
+  text-align: center;
+  padding: 14px 16px 18px;
+}
+
+.cardTitleText {
+  font-family: var(--font-prata), Georgia, serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.cardTitleText.available {
+  color: #000;
+}
+
+.cardTitleText.unavailable {
+  color: #666;
+}
+
+/* Card label thumbnail */
+.cardLabelThumb {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+
+.cardLabel {
+  background: white;
+  padding: 8px 24px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-family: var(--font-prata), Georgia, serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}

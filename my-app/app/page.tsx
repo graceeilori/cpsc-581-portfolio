@@ -1,103 +1,196 @@
 "use client";
 
-import GlowNumber from "./components/GlowNumber";
-// import VinylPlayer from "./components/VinylPlayer";
-// import PolaroidPhoto from "./components/PolaroidPhoto";
-// import ScrollHint from "./components/ScrollHint";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import styles from "./page.module.css";
 
-const projects = [
+type Project = {
+  id: number;
+  title: string;
+  href: string;
+  thumbnailImg?: string;
+  available: boolean;
+};
+
+type Bonus = {
+  id: number;
+  title: string;
+  href: string;
+  thumbnailImg?: string;
+  available: boolean;
+};
+
+const mainProjects: Project[] = [
   {
-    digit: "5",
-    color: "purple" as const,
-    href: "/project-5",
+    id: 1,
     title: "A Family of Buttons",
-  },
-  {
-    digit: "8",
-    color: "mint" as const,
-    href: "/project-8",
-    title: "Project Two",
-    disabled: true,
-  },
-  {
-    digit: "1",
-    color: "yellow" as const,
     href: "/project-1",
-    title: "Project Three",
-    disabled: true,
+    thumbnailImg: "/assets/button-project-cover.png",
+    available: true,
+  },
+  {
+    id: 2,
+    title: "CAD Expertise Sharing",
+    href: "/project-2",
+    thumbnailImg: "/assets/cad-expertise-cover.png",
+    available: false,
+  },
+  {
+    id: 3,
+    title: "Augmented Eating Experience",
+    href: "/project-3",
+    thumbnailImg: "/assets/placeholder.png",
+    available: false,
   },
 ];
 
+const bonusProjects: Bonus[] = [
+  {
+    id: 4,
+    title: "The Corner",
+    href: "/project-4",
+    thumbnailImg: "/assets/bonus-1-cover.png",
+    available: false,
+  },
+  {
+    id: 5,
+    title: "The Shed",
+    href: "/project-5",
+    thumbnailImg: "/assets/bonus-2-cover.png",
+    available: false,
+  },
+  {
+    id: 6,
+    title: "The Creed",
+    href: "/project-6",
+    thumbnailImg: "/assets/bonus-3-cover.png",
+    available: false,
+  },
+];
+
+const allProjects = [...mainProjects, ...bonusProjects];
+
+function ProjectThumbnail({ project }: { project: (typeof allProjects)[0] }) {
+  if (project.thumbnailImg) return <img src={project.thumbnailImg} alt={project.title} className={styles.projectImage} />;
+  return null;
+}
+
+function BonusThumbnail({ project }: { project: (typeof bonusProjects)[0] }) {
+  if (project.thumbnailImg) return <img src={project.thumbnailImg} alt={project.title} className={styles.bonusImage} />;
+  return null;
+}
+
+const containerVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.4 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+};
+
+function ProjectCard({ project, thumbnailClass }: { project: (typeof allProjects)[0]; thumbnailClass: string }) {
+  const CardWrapper = project.available ? Link : "div";
+  const cardProps = project.available ? { href: project.href } : {};
+  const cardClass = [styles.card, project.available ? styles.clickable : styles.disabled].join(" ");
+
+  return (
+    <CardWrapper {...(cardProps as any)} className={cardClass}>
+      <div className={thumbnailClass}>
+        <div className={styles.thumbnailInner}>
+          <ProjectThumbnail project={project} />
+        </div>
+        {project.available && (
+          <div className={styles.hoverOverlay}>
+            <span className={styles.hoverLabel}>View Project</span>
+          </div>
+        )}
+        {!project.available && (
+          <div className={styles.soonBadge}>Soon</div>
+        )}
+      </div>
+      <div className={styles.cardTitle}>
+        <span className={`${styles.cardTitleText} ${project.available ? styles.available : styles.unavailable}`}>
+          {project.title}
+        </span>
+      </div>
+    </CardWrapper>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="relative min-h-screen flex flex-col bg-cream overflow-hidden">
-      {/* Polaroid photo — top right (commented out) */}
-      {/* <div className="absolute top-6 right-6 z-10">
-        <PolaroidPhoto />
-      </div> */}
+    <div className={styles.page}>
 
-      {/* Welcome message */}
-      <motion.div
-        className="pt-16 sm:pt-20 px-6 text-center"
-        initial={{ opacity: 0, y: -15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
+      {/* Top Nav */}
+      <motion.header
+        className={styles.nav}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
       >
-        <h1 className="text-xl sm:text-2xl md:text-3xl text-ink leading-relaxed" style={{ fontFamily: 'var(--font-caveat), cursive' }}>
-          welcome to my CPSC 581
-        </h1>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl text-ink leading-relaxed" style={{ fontFamily: 'var(--font-caveat), cursive' }}>
-          Human Computer Interaction II portfolio
-        </h1>
-        <p className="font-hand text-warm-gray text-base sm:text-lg mt-2">
-          click a number to explore
-        </p>
+        <span className={styles.logo}>Grace Ilori</span>
+      </motion.header>
+
+      {/* Hero Title */}
+      <motion.div
+        className={styles.hero}
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.15 }}
+      >
+        <h1 className={styles.heroTitle}>CPSC 581: Portfolio</h1>
+        <p className={styles.heroSubtitle}>Human Computer Interaction II</p>
       </motion.div>
 
-      {/* 581 Hero Numbers */}
-      <div className="flex-1 flex items-center justify-center px-4">
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 md:gap-6 lg:gap-10">
-          {projects.map((project, i) => (
-            <GlowNumber
-              key={project.digit}
-              digit={project.digit}
-              color={project.color}
-              href={project.href}
-              projectTitle={project.title}
-              delay={0.5 + i * 0.15}
-              disabled={project.disabled}
-            />
-          ))}
+      {/* Projects Grid */}
+      <motion.div variants={containerVariants} initial="hidden" animate="show">
+        <div className={styles.grid}>
+          {mainProjects.map((project, i) => {
+            const isLastInRow = (i + 1) % 3 === 0;
+            const cellClass = [
+              styles.gridCell,
+              !isLastInRow ? styles.borderRight : "",
+            ].join(" ");
+
+            return (
+              <motion.div key={project.id} variants={itemVariants} className={cellClass}>
+                <ProjectCard project={project} thumbnailClass={styles.thumbnail} />
+              </motion.div>
+            );
+          })}
         </div>
-      </div>
+      </motion.div>
 
-      {/* Vinyl Player — bottom left (commented out) */}
-      {/* <div className="absolute bottom-8 left-6 z-10">
-        <VinylPlayer size="md" />
-      </div> */}
+      {/* Horizontal Divider */}
+      <motion.img
+        src="/assets/custom-divider.png"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      />
 
-      {/* Scroll Hint — bottom center (commented out — no scroll behavior yet) */}
-      {/* <div className="pb-10 flex justify-center">
-        <ScrollHint />
-      </div> */}
 
-      {/* Subtle decorative elements */}
-      <motion.div
-        className="absolute top-1/4 left-8 w-2 h-2 rounded-full bg-glow-pink/30"
-        animate={{ y: [0, -20, 0], opacity: [0.3, 0.7, 0.3] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute top-1/3 right-12 w-1.5 h-1.5 rounded-full bg-glow-mint/30"
-        animate={{ y: [0, -15, 0], opacity: [0.2, 0.6, 0.2] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 left-1/4 w-1 h-1 rounded-full bg-glow-yellow/30"
-        animate={{ y: [0, -12, 0], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
+      {/* Bonus Section */}
+      <motion.div variants={containerVariants} initial="hidden" animate="show">
+        <div className={styles.bonusGrid}>
+          {bonusProjects.map((project, i) => {
+            const isLastInRow = (i + 1) % 3 === 0;
+            const cellClass = [
+              styles.gridCell,
+              !isLastInRow ? styles.borderRight : "",
+            ].join(" ");
+
+            return (
+              <motion.div key={project.id} variants={itemVariants} className={cellClass}>
+                <ProjectCard project={project} thumbnailClass={styles.bonusThumbnail} />
+              </motion.div>
+            );
+          })}
+        </div>
+      </motion.div>
+
     </div>
   );
 }

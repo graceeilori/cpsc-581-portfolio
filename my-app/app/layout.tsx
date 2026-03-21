@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans, Caveat } from "next/font/google";
+import { Syne, DM_Sans, Caveat, Prata, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 const syne = Syne({
@@ -23,6 +23,20 @@ const caveat = Caveat({
   display: "swap",
 });
 
+const prata = Prata({
+  variable: "--font-prata",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "581 — CPSC 581 Portfolio",
   description:
@@ -43,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${syne.variable} ${dmSans.variable} ${caveat.variable}`}
+        className={`${syne.variable} ${dmSans.variable} ${caveat.variable} ${prata.variable} ${ibmPlexSans.variable}`}
       >
         {children}
       </body>
