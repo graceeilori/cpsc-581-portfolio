@@ -39,7 +39,12 @@ html {
 }
 
 body {
+  background-image: url('/assets/home-bg.png');
   background-color: #E6E1D1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #000000;
   font-family: var(--font-body), system-ui, sans-serif;
   overflow-x: hidden;
