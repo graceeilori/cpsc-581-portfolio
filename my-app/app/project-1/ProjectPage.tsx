@@ -1,6 +1,6 @@
 "use client";
 
-import ProjectLayout from "../components/ProjectLayout";
+import ProjectLayoutOld from "../components/ProjectLayoutOld";
 import ImageGallery from "../components/ImageGallery";
 
 const placeholderImages = [
@@ -33,7 +33,7 @@ const solutionImages = [
 
 export default function ProjectPage() {
     return (
-        <ProjectLayout
+        <ProjectLayoutOld
             projectNumber="5"
             projectTitle="A Family of Buttons"
             projectSubtitle="Project 1"
