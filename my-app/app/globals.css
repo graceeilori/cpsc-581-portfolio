@@ -611,3 +611,314 @@ body {
   color: var(--color-text);
   margin-top: -4px;
 }
+
+/* ===== Project Page Sections ===== */
+
+.pp-border-section {
+  border-top: 0.6px solid rgba(107, 73, 58, 0.7);
+  border-bottom: 0.6px solid rgba(107, 73, 58, 0.7);
+  padding: 48px 60px;
+}
+
+.pp-section {
+  padding: 48px 60px;
+  border-bottom: 0.6px solid rgba(107, 73, 58, 0.7);
+}
+
+.pp-section-centered-heading {
+  font-family: var(--font-prata), Georgia, serif;
+  font-size: 52px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 48px;
+  color: #1A1A1A;
+}
+
+/* Two-column layout: left heading / right content */
+.pp-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.pp-two-col-heading {
+  font-family: var(--font-prata), Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #1A1A1A;
+}
+
+.pp-two-col-body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #1A1A1A;
+}
+
+.pp-two-col-body p {
+  margin-bottom: 12px;
+}
+
+.pp-two-col-body ul {
+  padding-left: 20px;
+  list-style: disc;
+  margin-top: 8px;
+}
+
+.pp-two-col-body li {
+  margin-bottom: 8px;
+}
+
+/* Black badge / pill for subsection headings */
+.pp-badge {
+  display: inline-block;
+  background: #1A1A1A;
+  color: #fff;
+  font-family: var(--font-prata), Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 6px 20px;
+  margin-bottom: 28px;
+}
+
+/* Subsection title (e.g. "Planet Design") */
+.pp-sub-title {
+  font-family: var(--font-prata), Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin-bottom: 8px;
+}
+
+/* Small caption below image strip */
+.pp-image-caption {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-top: 8px;
+}
+
+/* Body text paragraph */
+.pp-body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #1A1A1A;
+  margin-bottom: 12px;
+}
+
+/* Image strip with dark background */
+.pp-image-strip {
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 16px 0 4px;
+  display: block;
+  object-fit: cover;
+}
+
+/* Sketch image grid 2x2 */
+.pp-sketch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pp-sketch-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  background: #ddd;
+}
+
+/* Bar-bullet list item (colored left border) */
+.pp-bar-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pp-bar-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  color: #1A1A1A;
+}
+
+.pp-bar-bullet::before {
+  content: '';
+  display: block;
+  width: 3px;
+  min-width: 3px;
+  height: 20px;
+  background: #c8a;
+  margin-top: 2px;
+}
+
+.pp-bar-bullet.bar-pink::before { background: #E8A0A8; }
+.pp-bar-bullet.bar-gray::before { background: #B8AFB0; }
+
+/* Code bullet list */
+.pp-bullet-list {
+  padding-left: 20px;
+  list-style: disc;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #1A1A1A;
+}
+
+/* Video container */
+.pp-video-container {
+  width: 75%;
+  margin: 0 auto 28px;
+  background: #000;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.pp-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Links row below video */
+.pp-links-row {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin: 28px 0;
+  padding-bottom: 28px;
+  border-bottom: 0.6px solid rgba(107, 73, 58, 0.4);
+}
+
+.pp-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pp-link-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.pp-link-value {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  color: #1A1A1A;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Team credit */
+.pp-team-row {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.pp-team-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pp-team-names {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 15px;
+  color: #1A1A1A;
+}
+
+/* Soundtrack section */
+.pp-soundtrack {
+  padding: 60px 60px;
+  text-align: center;
+  background: var(--color-parchment-dark);
+}
+
+.pp-soundtrack-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+.pp-vinyl {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.pp-song-title {
+  font-family: var(--font-prata), Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin-bottom: 4px;
+}
+
+.pp-song-artist {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+/* Subsection spacing */
+.pp-subsection {
+  margin-bottom: 48px;
+}
+
+.pp-left-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .pp-two-col,
+  .pp-left-right {
+    grid-template-columns: 1fr;
+  }
+  .pp-border-section,
+  .pp-section {
+    padding: 32px 24px;
+  }
+  .pp-video-container {
+    width: 100%;
+  }
+  .pp-links-row {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+  .pp-section-centered-heading {
+    font-size: 36px;
+  }
+  .pp-two-col-heading {
+    font-size: 28px;
+  }
+}

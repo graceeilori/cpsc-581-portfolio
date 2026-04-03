@@ -3,14 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-interface ProjectSection {
-    title: string;
-    content: React.ReactNode;
-    images?: { src: string; alt: string; caption?: string }[];
-    video?: string;
-    videoCaption?: string;
-}
-
 interface ProjectTitleSection {
     title: string;
     subtitle1: string;
@@ -23,26 +15,14 @@ interface ProjectLayoutProps {
     className?: string;
     heroImage: string;
     projectTitleSection: ProjectTitleSection;
-    /* projectSummary: ProjectSection;
-    designChallenge: ProjectSection;
-    exploration: ProjectSection;
-    development: ProjectSection;
-    submission: ProjectSection;
-    reflection?: ProjectSection;
-    soundtrack: ProjectSection; */
+    children?: React.ReactNode;
 }
 
 export default function ProjectLayout({
     className,
     heroImage,
     projectTitleSection,
-    /* projectSummary,
-    designChallenge,
-    exploration,
-    development,
-    submission,
-    reflection,
-    soundtrack, */
+    children,
 }: ProjectLayoutProps) {
 
     return (
@@ -58,7 +38,7 @@ export default function ProjectLayout({
                 <Link href="/" className="logo">Grace Ilori</Link>
             </motion.header>
 
-            <img src={heroImage} alt="Hero Image" />
+            <img src={heroImage} alt="Hero Image" style={{ width: "100%", display: "block" }} />
 
             <div className="projectTitleSection">
                 <h1 className="titleText">{projectTitleSection.title}</h1>
@@ -73,6 +53,8 @@ export default function ProjectLayout({
                     </div>
                 </div>
             </div>
+
+            {children}
         </div>
     );
 }
