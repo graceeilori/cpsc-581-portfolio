@@ -38,11 +38,11 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "581 — CPSC 581 Portfolio",
+  title: "CPSC 581 Portfolio",
   description:
     "An interactive portfolio showcasing Human-Computer Interaction projects from CPSC 581.",
   openGraph: {
-    title: "581 — CPSC 581 Portfolio",
+    title: "CPSC 581 Portfolio",
     description:
       "An interactive portfolio showcasing Human-Computer Interaction projects from CPSC 581.",
     type: "website",
