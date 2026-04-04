@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import BackButton from "../components/BackButton";
 
 const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -13,13 +12,7 @@ const sectionTransition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
 export default function AboutPage() {
     return (
         <div className="min-h-screen bg-cream">
-            {/* Header */}
-            <div className="px-6 sm:px-12 md:px-20 pt-8">
-                <BackButton />
-            </div>
-
             <div className="max-w-3xl mx-auto px-6 sm:px-12 py-16">
-                {/* Title */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
