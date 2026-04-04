@@ -30,14 +30,14 @@ const mainProjects: Project[] = [
   {
     id: 2,
     title: "CAD Expertise Sharing",
-    href: "/project-1",
+    href: "/button-project",
     thumbnailImg: "/assets/cad-expertise-cover.png",
     available: true,
   },
   {
     id: 3,
     title: "Augmented Eating Experience",
-    href: "/project-3",
+    href: "/button-project",
     thumbnailImg: "/assets/placeholder.png",
     available: false,
   },

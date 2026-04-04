@@ -1,22 +1,34 @@
 "use client";
 
 import ProjectLayout from "@/app/components/ProjectLayout";
+import Link from "next/link";
 
 export default function ProjectPage() {
     return (
         <ProjectLayout
             className="projectPage"
-            heroImage="/assets/project-1-hero.png"
-            projectTitleSection={{
-                title: "A Family of Buttons",
-                subtitle1: "Duration",
-                subtitle2: "Tools & Tech",
-                subcontent1: "2 Weeks",
-                subcontent2: "Figma, Inkscape, React",
-            }}
+            heroImage="/assets/button-project/project-1-hero.png"
         >
+            <div className="projectTitleSection">
+                <h1 className="titleText">A Family of Buttons</h1>
+                <div className="summary">
+                    <div className="summaryItem">
+                        <span className="summaryLabel">Duration</span>
+                        <span className="summaryValue">2 Weeks</span>
+                    </div>
+                    <div className="summaryItem">
+                        <span className="summaryLabel">Tools &amp; Tech</span>
+                        <span className="summaryValue">Figma, Inkscape, React</span>
+                    </div>
+                </div>
+                <Link href="/" className="cancelBtn" aria-label="Back to home">
+                    <div className="cancelBtnInner">
+                        <img src="/assets/general/cancel-01.svg" alt="Cancel" width={28} height={28} />
+                    </div>
+                </Link>
+            </div>
 
-            {/* ── The Design Challenge ── */}
+            {/* The Design Challenge */}
             <section className="pp-border-section">
                 <div className="pp-two-col">
                     <h2 className="pp-two-col-heading">The Design Challenge</h2>
@@ -37,7 +49,7 @@ export default function ProjectPage() {
                 </div>
             </section>
 
-            {/* ── Exploration ── */}
+            {/* Exploration */}
             <section className="pp-section">
                 <h2 className="pp-section-centered-heading">Exploration</h2>
 
@@ -117,7 +129,7 @@ export default function ProjectPage() {
                 </div>
             </section>
 
-            {/* ── Development ── */}
+            {/* Development */}
             <section className="pp-section">
                 <h2 className="pp-section-centered-heading">Development</h2>
 
@@ -177,7 +189,7 @@ export default function ProjectPage() {
                 </div>
             </section>
 
-            {/* ── Final Submission ── */}
+            {/* Final Submission */}
             <section className="pp-section">
                 <h2 className="pp-section-centered-heading">Final Submission</h2>
 
@@ -220,7 +232,7 @@ export default function ProjectPage() {
                 </div>
             </section>
 
-            {/* ── Reflection ── */}
+            {/* Reflection */}
             <section className="pp-section">
                 <div className="pp-two-col">
                     <h2 className="pp-two-col-heading">Reflection</h2>
@@ -241,7 +253,7 @@ export default function ProjectPage() {
                 </div>
             </section>
 
-            {/* ── Soundtrack ── */}
+            {/* Soundtrack */}
             <div className="pp-soundtrack">
                 <p className="pp-soundtrack-label">My Project Soundtrack</p>
                 <img
