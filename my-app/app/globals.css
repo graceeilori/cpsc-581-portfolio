@@ -603,7 +603,7 @@ body {
 }
 
 .cancelBtn:hover {
-  transform: scale(1.5);
+  transform: scale(1.05);
 }
 
 .cancelBtnInner {
@@ -678,11 +678,12 @@ body {
 .pp-border-section {
   border-top: 0.6px solid rgba(107, 73, 58, 0.7);
   border-bottom: 0.6px solid rgba(107, 73, 58, 0.7);
-  padding: 48px 60px;
+  padding: 56px 160px;
+  gap: 32px;
 }
 
 .pp-section {
-  padding: 48px 60px;
+  padding: 56px 160px;
   border-bottom: 0.6px solid rgba(107, 73, 58, 0.7);
 }
 
@@ -698,24 +699,27 @@ body {
 /* Two-column layout: left heading / right content */
 .pp-two-col {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 40px;
+  align-items: center;
 }
 
 .pp-two-col-heading {
   font-family: var(--font-prata), Georgia, serif;
-  font-size: 40px;
+  font-size: 56px;
   font-weight: 400;
   line-height: 1.2;
   color: #1A1A1A;
+  border-right: 0.6px solid rgba(107, 73, 58, 0.7);
 }
 
 .pp-two-col-body {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.7;
   color: #1A1A1A;
+  align-items: start;
+  padding-left: 16px;
 }
 
 .pp-two-col-body p {

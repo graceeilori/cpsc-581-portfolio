@@ -28,10 +28,10 @@ export default function ProjectPage() {
                 </Link>
             </div>
 
-            {/* The Design Challenge */}
+            {/* Challenge */}
             <section className="pp-border-section">
                 <div className="pp-two-col">
-                    <h2 className="pp-two-col-heading">The Design Challenge</h2>
+                    <h2 className="pp-two-col-heading">The<br />Design<br />Challenge</h2>
                     <div className="pp-two-col-body">
                         <p>
                             Sketch, design, implement, and document a web/software application in which
