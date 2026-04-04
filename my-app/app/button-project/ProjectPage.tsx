@@ -53,77 +53,57 @@ export default function ProjectPage() {
             <section className="pp-section">
                 <h2 className="pp-section-centered-heading">Exploration</h2>
 
-                {/* Early Ideas */}
-                <div className="pp-subsection">
-                    <span className="pp-badge">Early Ideas</span>
-                    <div className="pp-left-right">
-                        <p className="pp-body">
-                            The team first met in tutorial, got to know each other and briefly
-                            brainstormed possible ideas for the project. After this session, we
-                            decided to use the 10 + 10 sketching method to each create different
-                            ideas for the project.
-                        </p>
-                        <img
-                            src="/assets/Initial_sketches.jpg"
-                            alt="Initial brainstorm session sketches"
-                            className="pp-sketch-img"
-                            style={{ aspectRatio: "unset", width: "100%", objectFit: "cover" }}
-                        />
-                    </div>
-                </div>
-
                 {/* Diverging Ideas */}
                 <div className="pp-subsection">
                     <span className="pp-badge">Diverging Ideas</span>
                     <div className="pp-left-right">
-                        <div>
-                            <div className="pp-sketch-grid">
-                                <img src="/assets/Grace_1010A.jpg" alt="Sketch A" className="pp-sketch-img" />
-                                <img src="/assets/Grace_1010B.jpg" alt="Sketch B" className="pp-sketch-img" />
-                                <img src="/assets/Grace_1010D.jpg" alt="Sketch D" className="pp-sketch-img" />
-                                <img src="/assets/Grace_10103.jpg" alt="Sketch 3" className="pp-sketch-img" />
-                            </div>
-                            <p className="pp-image-caption">Individual sketches — 10+10 method</p>
-                        </div>
                         <p className="pp-body">
-                            For my sketches, I created 10 different button types and 10 different
-                            content arrangement using different button types.
-                            <br /><br />
-                            I decide to explore different button ideas for Sketch #4.
+                            The team brainstormed possible ideas for the project in our first meeting. After which
+                            we decided to use the 10 + 10 sketching method to individually
+                            develop different concepts for the project.
                         </p>
+                        <p className="pp-body">
+                            For my sketches, I designed 10 different button types and 10 different
+                            content arrangements using different button types.
+                            I then decided to explore different button ideas for sketch #4.
+                        </p>
+                    </div>
+                    <div>
+                        <div>
+                            <div className="pp-sketch-strip-hor">
+                                <img src="/assets/button-project/sketch_a.jpg" className="pp-sketch-img" />
+                                <img src="/assets/button-project/sketch_b.jpg" className="pp-sketch-img" />
+                                <img src="/assets/button-project/sketch_c.jpg" className="pp-sketch-img" />
+                                <img src="/assets/button-project/sketch_d.jpg" className="pp-sketch-img" />
+                            </div>
+                            <p className="pp-image-caption">Early sketches</p>
+                        </div>
                     </div>
                 </div>
 
                 {/* Converging Ideas */}
-                <div className="pp-subsection" style={{ marginBottom: 0 }}>
+                <div className="pp-subsection">
                     <span className="pp-badge">Converging Ideas</span>
                     <div className="pp-left-right">
                         <div>
-                            <img
-                                src="/assets/converging2.jpeg"
-                                alt="Converging concept discussion"
-                                className="pp-sketch-img"
-                                style={{ width: "100%", aspectRatio: "unset", marginBottom: 12 }}
-                            />
-                            <img
-                                src="/assets/OrbitIdeaPrototype.png"
-                                alt="Orbit concept prototype"
-                                className="pp-sketch-img"
-                                style={{ width: "100%", aspectRatio: "unset" }}
-                            />
-                        </div>
-                        <div>
                             <p className="pp-body">
-                                The team convened and reviewed everyone&apos;s ideas. Each member
+                                The team convened and we reviewed everyone&apos;s ideas. Each member
                                 explained their concepts and we narrowed down our ideas. The team
                                 unanimously selected the orbit concept for our project, this was my
                                 sketch #6. This idea was selected mainly for its:
                             </p>
                             <ul className="pp-bar-bullets" style={{ marginTop: 16 }}>
                                 <li className="pp-bar-bullet bar-pink">Playful Elements</li>
-                                <li className="pp-bar-bullet bar-gray">Technical Feasibility</li>
-                                <li className="pp-bar-bullet bar-pink">Display of Individual Uniqueness</li>
+                                <li className="pp-bar-bullet bar-red">Technical Feasibility</li>
+                                <li className="pp-bar-bullet bar-purple">Display of Individual Uniqueness</li>
                             </ul>
+                        </div>
+                        <div>
+                            <img
+                                src="/assets/button-project/OrbitIdeaPrototype.png"
+                                alt="Orbit concept prototype"
+                                className="pp-sketch-img"
+                            />
                         </div>
                     </div>
                 </div>

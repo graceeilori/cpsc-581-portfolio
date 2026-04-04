@@ -684,6 +684,7 @@ body {
 
 .pp-section {
   padding: 56px 160px;
+  gap: 80px;
   border-bottom: 0.6px solid rgba(107, 73, 58, 0.7);
 }
 
@@ -692,7 +693,7 @@ body {
   font-size: 52px;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   color: #1A1A1A;
 }
 
@@ -740,12 +741,13 @@ body {
 .pp-badge {
   display: inline-block;
   background: #1A1A1A;
-  color: #fff;
+  color: #F7F0DC;
   font-family: var(--font-prata), Georgia, serif;
-  font-size: 18px;
+  font-size: 32px;
   font-weight: 400;
-  padding: 6px 20px;
-  margin-bottom: 28px;
+  padding: 12px 16px;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 /* Subsection title (e.g. "Planet Design") */
@@ -770,35 +772,33 @@ body {
 /* Body text paragraph */
 .pp-body {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.7;
   color: #1A1A1A;
   margin-bottom: 12px;
 }
 
-/* Image strip with dark background */
-.pp-image-strip {
+.pp-sketch-strip-hor {
+  align-self: stretch;
   width: 100%;
-  border-radius: 2px;
-  overflow: hidden;
-  margin: 16px 0 4px;
-  display: block;
-  object-fit: cover;
-}
-
-/* Sketch image grid 2x2 */
-.pp-sketch-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 16px;
+  padding: 32px;
+  background-color: rgba(250, 246, 234, 0.75);
+  outline: 0.6px solid #1A1A1A;
+  outline-offset: -1px;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 32px;
+  box-sizing: border-box;
+  margin-top: 32px;
 }
 
 .pp-sketch-img {
+  flex: 1;
+  min-width: 0;
   width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  background: #ddd;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* Bar-bullet list item (colored left border) */
@@ -810,30 +810,33 @@ body {
 
 .pp-bar-bullet {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #1A1A1A;
 }
 
 .pp-bar-bullet::before {
   content: '';
   display: block;
-  width: 3px;
-  min-width: 3px;
-  height: 20px;
-  background: #c8a;
-  margin-top: 2px;
+  width: 4px;
+  min-width: 4px;
+  height: 24px;
+  background: #DD568C;
 }
 
 .pp-bar-bullet.bar-pink::before {
-  background: #E8A0A8;
+  background: #DD568C;
 }
 
-.pp-bar-bullet.bar-gray::before {
-  background: #B8AFB0;
+.pp-bar-bullet.bar-purple::before {
+  background: #A2A1E3;
+}
+
+.pp-bar-bullet.bar-red::before {
+  background: #DD5656;
 }
 
 /* Code bullet list */
@@ -964,7 +967,7 @@ body {
 .pp-left-right {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 80px;
   align-items: start;
 }
 
