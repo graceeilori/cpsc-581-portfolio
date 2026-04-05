@@ -778,6 +778,14 @@ body {
   margin-bottom: 12px;
 }
 
+.pp-body-small {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #1A1A1A;
+  margin-bottom: 12px;
+}
+
 .pp-sketch-strip-hor {
   align-self: stretch;
   width: 100%;
@@ -837,6 +845,48 @@ body {
 
 .pp-bar-bullet.bar-red::before {
   background: #DD5656;
+}
+
+.pp-box-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pp-box-bullet {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  color: #1A1A1A;
+}
+
+.pp-box-bullet::before {
+  content: '';
+  display: block;
+  width: 8px;
+  min-width: 8px;
+  height: 8px;
+  margin-top: 10px;
+  background: #1A1A1A;
+}
+
+.pp-box-bullet.box-gray::before {
+  background: #37474f;
+}
+
+.pp-box-bullet.box-black::before {
+  background: #1A1A1A;
+}
+
+.pp-box-bullet.box-yellow::before {
+  background: #f3c859;
+}
+
+.pp-box-bullet.box-red::before {
+  background: #DB0B0E;
 }
 
 /* Code bullet list */
@@ -961,7 +1011,7 @@ body {
 
 /* Subsection spacing */
 .pp-subsection {
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .pp-left-right {

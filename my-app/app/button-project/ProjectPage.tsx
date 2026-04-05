@@ -104,6 +104,7 @@ export default function ProjectPage() {
                                 alt="Orbit concept prototype"
                                 className="pp-sketch-img"
                             />
+                            <p className="pp-image-caption">Orbit concept</p>
                         </div>
                     </div>
                 </div>
@@ -117,18 +118,32 @@ export default function ProjectPage() {
                 <div className="pp-subsection">
                     <span className="pp-badge">Design</span>
 
-                    {/* Planet Design */}
+                    {/* Planet & Moon Design */}
                     <div style={{ marginBottom: 36 }}>
                         <h3 className="pp-sub-title">Planet Design</h3>
-                        <p className="pp-body">
-                            Design of the sun and stars in Figma. Individual planet design in Inkscape.
-                            talk about name engraving suggestion from caleb. attribute story set for piano and moon
-                        </p>
-                        <img
-                            src="/assets/planet-design.png"
-                            alt="Planet design assets"
-                            className="pp-image-strip"
-                        />
+                        <div className="pp-left-right" style={{ marginBottom: 24 }}>
+                            <p className="pp-body-small">
+                                My planet design draws inspiration from the album art of the <em>BTS World: Original Soundtrack</em>,
+                                its color palette felt like a natural fit for representing my planet.
+                                During a team brainstorming session, a teammate suggested engraving our names into the planet's surface.
+                                I designed this in Inkscape, then assembled the final composition in Figma.
+                            </p>
+                            <div>
+                                <p className="pp-body-small">
+                                    The moons orbiting each planet represent a personal or shared interests:
+                                </p>
+                                <ul className="pp-box-bullets" style={{ marginTop: 16, marginLeft: 32 }}>
+                                    <li className="pp-box-bullet box-gray">a piano for my childhood interest in music (shared with Caleb)</li>
+                                    <li className="pp-box-bullet box-black">a gun for Call of Duty: Mobile (shared with Chris)</li>
+                                    <li className="pp-box-bullet box-yellow">an oven for baking (shared with JJ)</li>
+                                    <li className="pp-box-bullet box-red">a red moon symbolizing the shape of sickle cell red blood cells, a personal reference to my own experience with sickle cell anemia.</li>
+                                </ul>
+                                <p className="pp-body-small" style={{ marginTop: -4 }}>
+                                    The piano and moon assets were sourced from Storyset by Freepik.
+                                </p>
+                            </div>
+                        </div>
+                        <img src="/assets/button-project/planet-moon-design.png" className="pp-sketch-img" />
                         <p className="pp-image-caption">Planet Design</p>
                     </div>
 
@@ -136,14 +151,10 @@ export default function ProjectPage() {
                     <div style={{ marginBottom: 36 }}>
                         <h3 className="pp-sub-title">Sun Design</h3>
                         <p className="pp-body">
-                            Design of the sun and stars in Figma. Individual planet design in Inkscape.
+                            Design of the sun and stars in Figma.
                         </p>
-                        <img
-                            src="/assets/sun-design.png"
-                            alt="Sun design assets"
-                            className="pp-image-strip"
-                        />
-                        <p className="pp-image-caption">Planet Design</p>
+                        <img src="/assets/button-project/sun-star-design.png" className="pp-sketch-img" />
+                        <p className="pp-image-caption">Sun Design</p>
                     </div>
 
                     {/* More Design Notes */}
