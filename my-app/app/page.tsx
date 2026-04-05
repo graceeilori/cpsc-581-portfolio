@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import styles from "./page.module.css";
 
 type Project = {
   id: number;
@@ -24,21 +23,21 @@ const mainProjects: Project[] = [
   {
     id: 1,
     title: "A Family of Buttons",
-    href: "/project-1",
+    href: "/button-project",
     thumbnailImg: "/assets/button-project-cover.png",
     available: true,
   },
   {
     id: 2,
     title: "CAD Expertise Sharing",
-    href: "/project-2",
+    href: "/button-project",
     thumbnailImg: "/assets/cad-expertise-cover.png",
-    available: false,
+    available: true,
   },
   {
     id: 3,
     title: "Augmented Eating Experience",
-    href: "/project-3",
+    href: "/button-project",
     thumbnailImg: "/assets/placeholder.png",
     available: false,
   },
@@ -71,12 +70,12 @@ const bonusProjects: Bonus[] = [
 const allProjects = [...mainProjects, ...bonusProjects];
 
 function ProjectThumbnail({ project }: { project: (typeof allProjects)[0] }) {
-  if (project.thumbnailImg) return <img src={project.thumbnailImg} alt={project.title} className={styles.projectImage} />;
+  if (project.thumbnailImg) return <img src={project.thumbnailImg} alt={project.title} className="projectImage" />;
   return null;
 }
 
 function BonusThumbnail({ project }: { project: (typeof bonusProjects)[0] }) {
-  if (project.thumbnailImg) return <img src={project.thumbnailImg} alt={project.title} className={styles.bonusImage} />;
+  if (project.thumbnailImg) return <img src={project.thumbnailImg} alt={project.title} className="bonusImage" />;
   return null;
 }
 
@@ -93,25 +92,25 @@ const itemVariants = {
 function ProjectCard({ project, thumbnailClass }: { project: (typeof allProjects)[0]; thumbnailClass: string }) {
   const CardWrapper = project.available ? Link : "div";
   const cardProps = project.available ? { href: project.href } : {};
-  const cardClass = [styles.card, project.available ? styles.clickable : styles.disabled].join(" ");
+  const cardClass = ["card", project.available ? "clickable" : "disabled"].join(" ");
 
   return (
     <CardWrapper {...(cardProps as any)} className={cardClass}>
       <div className={thumbnailClass}>
-        <div className={styles.thumbnailInner}>
+        <div className="thumbnailInner">
           <ProjectThumbnail project={project} />
         </div>
         {project.available && (
-          <div className={styles.hoverOverlay}>
-            <span className={styles.hoverLabel}>View Project</span>
+          <div className="hoverOverlay">
+            <span className="hoverLabel">View Project</span>
           </div>
         )}
         {!project.available && (
-          <div className={styles.soonBadge}>Soon</div>
+          <div className="soonBadge">Soon</div>
         )}
       </div>
-      <div className={styles.cardTitle}>
-        <span className={`${styles.cardTitleText} ${project.available ? styles.available : styles.unavailable}`}>
+      <div className="cardTitle">
+        <span className={`cardTitleText ${project.available ? "available" : "unavailable"}`}>
           {project.title}
         </span>
       </div>
@@ -124,22 +123,22 @@ const bonusRotations = [-8.5, -5, 5];
 function BonusCard({ project, rotation }: { project: (typeof bonusProjects)[0]; rotation: number }) {
   const CardWrapper = project.available ? Link : "div";
   const cardProps = project.available ? { href: project.href } : {};
-  const cardClass = [styles.card, project.available ? styles.clickable : styles.disabled].join(" ");
+  const cardClass = ["card", project.available ? "clickable" : "disabled"].join(" ");
 
   return (
     <CardWrapper {...(cardProps as any)} className={cardClass}>
-      <div className={styles.bonusThumbnail}>
-        <div className={styles.thumbnailInner}>
+      <div className="bonusThumbnail">
+        <div className="thumbnailInner">
           <BonusThumbnail project={project} />
         </div>
         <div
-          className={styles.bonusCardLabel}
+          className="bonusCardLabel"
           style={{ "--bonus-rotation": `${rotation}deg` } as React.CSSProperties}
         >
-          <span className={styles.bonusCardLabelText}>{project.title}</span>
+          <span className="bonusCardLabelText">{project.title}</span>
         </div>
         {!project.available && (
-          <div className={styles.soonBadge}>Soon</div>
+          <div className="soonBadge">Soon</div>
         )}
       </div>
     </CardWrapper>
@@ -148,41 +147,41 @@ function BonusCard({ project, rotation }: { project: (typeof bonusProjects)[0]; 
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div className="page">
 
       {/* Top Nav */}
       <motion.header
-        className={styles.nav}
+        className="nav"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <span className={styles.logo}>Grace Ilori</span>
+        <span className="logo">Grace Ilori</span>
       </motion.header>
 
       {/* Hero Title */}
       <motion.div
-        className={styles.hero}
+        className="hero"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.15 }}
       >
-        <h1 className={styles.heroTitle}>CPSC 581: Portfolio</h1>
-        <p className={styles.heroSubtitle}>Human Computer Interaction II</p>
+        <h1 className="heroTitle">CPSC 581: Portfolio</h1>
+        <p className="heroSubtitle">Human Computer Interaction II</p>
       </motion.div>
 
       {/* Projects Grid */}
       <motion.div variants={containerVariants} initial="hidden" animate="show">
-        <div className={styles.grid}>
+        <div className="grid">
           {mainProjects.map((project, i) => {
             const cellClass = [
-              styles.gridCell,
-              i === 0 ? styles.dividerRight : "",
-              i === 1 ? styles.dividerRightAlt : "",
+              "gridCell",
+              i === 0 ? "dividerRight" : "",
+              i === 1 ? "dividerRightAlt" : "",
             ].join(" ");
             return (
               <motion.div key={project.id} variants={itemVariants} className={cellClass}>
-                <ProjectCard project={project} thumbnailClass={styles.thumbnail} />
+                <ProjectCard project={project} thumbnailClass="thumbnail" />
               </motion.div>
             );
           })}
@@ -200,9 +199,9 @@ export default function Home() {
 
       {/* Bonus Section */}
       <motion.div variants={containerVariants} initial="hidden" animate="show">
-        <div className={styles.bonusGrid}>
+        <div className="bonusGrid">
           {bonusProjects.map((project, i) => (
-            <motion.div key={project.id} variants={itemVariants} className={styles.gridCell}>
+            <motion.div key={project.id} variants={itemVariants} className="gridCell">
               <BonusCard project={project} rotation={bonusRotations[i]} />
             </motion.div>
           ))}
