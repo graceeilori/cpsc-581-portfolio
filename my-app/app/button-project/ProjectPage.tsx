@@ -151,16 +151,11 @@ export default function ProjectPage() {
                     <div style={{ marginBottom: 36 }}>
                         <h3 className="pp-sub-title">Sun Design</h3>
                         <p className="pp-body">
-                            Design of the sun and stars in Figma.
+                            The sun started as a Figma Make variant of my planet, which I then adjusted to give it a warmer, more luminous feel.
+                            With dynamic brightness such that as more team members are selected in comparison mode, the sun's glow intensifies. The shooting stars in the background were also designed in Figma.
                         </p>
                         <img src="/assets/button-project/sun-star-design.png" className="pp-sketch-img" />
                         <p className="pp-image-caption">Sun Design</p>
-                    </div>
-
-                    {/* More Design Notes */}
-                    <div>
-                        <h3 className="pp-sub-title">More Design Notes</h3>
-                        <p className="pp-body">Orbit, dock, typography and colors?</p>
                     </div>
                 </div>
 
@@ -168,15 +163,23 @@ export default function ProjectPage() {
                 <div className="pp-subsection" style={{ marginBottom: 0 }}>
                     <span className="pp-badge">Code</span>
                     <p className="pp-body">
-                        I was in charge of improving the visual design and implementing complex
-                        interactions. I worked on:
+                        We built the project with React and Next.js, styled it with custom CSS, and shipped on Vercel.
                     </p>
-                    <ul className="pp-bullet-list" style={{ marginTop: 8 }}>
-                        <li>Creating an engaging space background with stars motion and shooting stars.</li>
-                        <li>Planet and moon movement around their orbit and the sun.</li>
-                        <li>Implementing the logic for pausing planets when clicked to reveal more information about team members.</li>
-                        <li>Visual design for the sun&apos;s and orbit&apos;s glow as planets are clicked.</li>
-                    </ul>
+                    <div className="code-strip">
+                        <iframe
+                            src="https://cpsc-button-project.vercel.app/"
+                            className="code-strip_iframe"
+                            scrolling="no"
+                        />
+                        <div className="code-strip_overlay">
+                            <ul className="pp-box-bullets" style={{ marginTop: 16, marginLeft: 16 }}>
+                                <li className="pp-box-bullet box-gray" style={{ color: "white" }}>Animated space background with stars and shooting stars</li>
+                                <li className="pp-box-bullet box-black" style={{ color: "white" }}>Planet and moon movement along their orbits, with each planet starting at a different position on its orbit</li>
+                                <li className="pp-box-bullet box-yellow" style={{ color: "white" }}>Click logic to pause planets and reveal team member info, tracking selected planets to trigger comparison mode</li>
+                                <li className="pp-box-bullet box-red" style={{ color: "white" }}>Dynamic sun brightness and orbit ring glow based on the number and position of selected planets</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -190,7 +193,6 @@ export default function ProjectPage() {
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <p className="pp-image-caption" style={{ textAlign: "center", marginBottom: 0 }}>Video Exp</p>
 
                 <div className="pp-links-row">
                     <div className="pp-link-group">
@@ -223,37 +225,19 @@ export default function ProjectPage() {
                 </div>
             </section>
 
-            {/* Reflection */}
-            <section className="pp-section">
-                <div className="pp-two-col">
-                    <h2 className="pp-two-col-heading">Reflection</h2>
-                    <div className="pp-two-col-body">
-                        <p>
-                            Sketch, design, implement, and document a web/software application in which
-                            the interaction centres around exactly one button per team member, such that:
-                        </p>
-                        <ul>
-                            <li>Each button represents one team member&apos;s personality or likeness in some way; and</li>
-                            <li>
-                                Interactions with the application reveal aspects of the dynamics between the
-                                team members, e.g., highlighting similarities/differences between experiences,
-                                values, and personalities of the team members.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
             {/* Soundtrack */}
             <div className="pp-soundtrack">
-                <p className="pp-soundtrack-label">My Project Soundtrack</p>
-                <img
-                    src="/assets/placeholder.png"
-                    alt="Dream Glow vinyl record"
-                    className="pp-vinyl"
-                />
-                <p className="pp-song-title">Dream Glow</p>
-                <p className="pp-song-artist">BTS x Charli XCX</p>
+                <p className="pp-soundtrack-label">
+                    My Project Soundtrack
+                </p>
+                <iframe data-testid="embed-iframe"
+                    style={{ borderRadius: '12px', marginLeft: '25%', marginTop: '2%' }}
+                    src="https://open.spotify.com/embed/track/5htqXNlhpzVMZomfRzT0ZE?utm_source=generator&theme=0"
+                    width="50%" height="152"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
             </div>
 
         </ProjectLayout>

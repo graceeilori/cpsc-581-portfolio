@@ -58,6 +58,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${syne.variable} ${dmSans.variable} ${caveat.variable} ${prata.variable} ${ibmPlexSans.variable}`}
+        suppressHydrationWarning
       >
         {children}
       </body>
