@@ -889,14 +889,28 @@ body {
   background: #DB0B0E;
 }
 
-/* Code bullet list */
-.pp-bullet-list {
-  padding-left: 20px;
-  list-style: disc;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #1A1A1A;
+.code-strip {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.code-strip_iframe {
+  width: 100%;
+  height: 700px;
+  margin-top: -185px;
+  border: none;
+  pointer-events: none;
+}
+
+.code-strip_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.55) 40%, transparent 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  color: #FAFAFA;
 }
 
 /* Video container */
@@ -972,41 +986,16 @@ body {
 .pp-soundtrack {
   padding: 60px 60px;
   text-align: center;
-  background: var(--color-parchment-dark);
+  background: #F4ECD8;
 }
 
 .pp-soundtrack-label {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #888;
-  margin-bottom: 24px;
-}
-
-.pp-vinyl {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 20px;
-  display: block;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-}
-
-.pp-song-title {
-  font-family: var(--font-prata), Georgia, serif;
-  font-size: 26px;
-  font-weight: 400;
   color: #1A1A1A;
-  margin-bottom: 4px;
-}
-
-.pp-song-artist {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 13px;
-  letter-spacing: 1px;
-  color: #666;
+  margin-bottom: 32px;
 }
 
 /* Subsection spacing */
