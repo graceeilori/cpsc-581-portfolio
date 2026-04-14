@@ -20,6 +20,10 @@ export default function ProjectPage() {
                         <span className="summaryLabel">Tools &amp; Tech</span>
                         <span className="summaryValue">Figma, Inkscape, React</span>
                     </div>
+                    <div className="summaryItem">
+                        <span className="summaryLabel">Team</span>
+                        <span className="summaryValue">Grace, Chris, JJ, Caleb</span>
+                    </div>
                 </div>
                 <Link href="/" className="cancelBtn" aria-label="Back to home">
                     <div className="cancelBtnInner">
@@ -189,7 +193,7 @@ export default function ProjectPage() {
 
                 <div className="pp-video-container">
                     <video controls preload="none">
-                        <source src="/assets/CPSC581_FamilyOfButtons_group2.mp4" type="video/mp4" />
+                        <source src="/assets/button-project/project-1-demo-video.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </div>

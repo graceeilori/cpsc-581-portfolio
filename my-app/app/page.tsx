@@ -24,14 +24,14 @@ const mainProjects: Project[] = [
     id: 1,
     title: "A Family of Buttons",
     href: "/button-project",
-    thumbnailImg: "/assets/button-project-cover.png",
+    thumbnailImg: "/assets/button-project/project-1-cover.png",
     available: true,
   },
   {
     id: 2,
     title: "CAD Expertise Sharing",
-    href: "/button-project",
-    thumbnailImg: "/assets/cad-expertise-cover.png",
+    href: "/cad-expertise",
+    thumbnailImg: "/assets/cad-expertise/project-2-cover.png",
     available: true,
   },
   {
