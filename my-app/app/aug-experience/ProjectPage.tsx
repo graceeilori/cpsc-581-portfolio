@@ -15,8 +15,8 @@ export default function ProjectPage() {
     return (
         <ProjectLayout
             className="projectPage"
-            heroImage="/assets/aug-experience/project-3-hero.png"
         >
+
             {/* Title Section */}
             <div className="projectTitleSection">
                 <h1 className="titleText">Convivium</h1>
@@ -26,12 +26,8 @@ export default function ProjectPage() {
                         <span className="summaryValue">~3 Weeks</span>
                     </div>
                     <div className="summaryItem">
-                        <span className="summaryLabel">Type</span>
-                        <span className="summaryValue">Physical Computing</span>
-                    </div>
-                    <div className="summaryItem">
                         <span className="summaryLabel">Tools & Tech</span>
-                        <span className="summaryValue">Arduino, FSR, WS2812B, RFID, Blender, TinkerCAD</span>
+                        <span className="summaryValue">Arduino, TinkerCAD</span>
                     </div>
                     <div className="summaryItem">
                         <span className="summaryLabel">Team</span>
@@ -45,18 +41,14 @@ export default function ProjectPage() {
                 </Link>
             </div>
 
-            {/* The Brief */}
+            {/* Design Challenge */}
             <section className="pp-border-section">
                 <div className="pp-two-col">
-                    <h2 className="pp-two-col-heading">The<br />Brief</h2>
+                    <h2 className="pp-two-col-heading">Design<br />Challenge</h2>
                     <div className="pp-two-col-body">
                         <p>
                             Augment one or more everyday objects to improve the experience of people eating together,
-                            using physical computing. The system had to sense, respond, and communicate — not just decorate.
-                        </p>
-                        <p>
-                            The brief was open about what &ldquo;improve&rdquo; meant. That openness pushed us to start with
-                            the context before touching any hardware.
+                            using physical computing. The system had to sense, respond, and communicate, not just decorate.
                         </p>
                     </div>
                 </div>
@@ -422,7 +414,19 @@ export default function ProjectPage() {
 
             {/* Soundtrack */}
             <div className="pp-soundtrack">
-                <p className="pp-soundtrack-label">My Project Soundtrack</p>
+                <p className="pp-soundtrack-label">
+                    My Project <s>Soundtrack</s> Podcast
+                </p>
+                <iframe
+                    data-testid="embed-iframe"
+                    style={{ borderRadius: '12px', marginLeft: '25%', marginTop: '2%' }}
+                    src="https://open.spotify.com/embed/episode/05Fz2N0afiqK5OLkGYq6io?utm_source=generator&theme=0"
+                    width="50%"
+                    height="152"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
             </div>
 
         </ProjectLayout>

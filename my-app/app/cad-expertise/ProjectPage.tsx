@@ -22,7 +22,7 @@ export default function ProjectPage() {
                 <div className="summary">
                     <div className="summaryItem">
                         <span className="summaryLabel">Duration</span>
-                        <span className="summaryValue">3 Weeks</span>
+                        <span className="summaryValue">~3 Weeks</span>
                     </div>
                     <div className="summaryItem">
                         <span className="summaryLabel">Tools & Tech</span>
@@ -47,8 +47,7 @@ export default function ProjectPage() {
                     <div className="pp-two-col-body">
                         <p>
                             Design a system that lets CAD experts synchronously and remotely share expertise
-                            with novices, using embodied input and output such as sensing, haptics, and audio. The project brief
-                            was explicit about one thing: video calls and screen sharing are the obvious answer,
+                            with novices, using embodied input and output such as sensing, haptics, and audio. Video calls and screen sharing are the obvious answer,
                             and designs that rely on them as the core interaction would suffer on the novelty criterion.
                         </p>
                         <p>
@@ -60,54 +59,64 @@ export default function ProjectPage() {
                 </div>
             </section>
 
-            {/* The Reframe */}
+            {/* Framing the Problem */}
             <section className="pp-section">
-                <h2 className="pp-section-centered-heading">The Reframe</h2>
+                <h2 className="pp-section-centered-heading">Framing the Problem</h2>
 
                 <div className="pp-subsection">
                     <p className="pp-body">
                         Our first instinct was &ldquo;expert watches student, expert talks, student listens.&rdquo; That&apos;s still
-                        basically screen sharing with a voice call on top. We kept asking: what does it mean for the
-                        environment to teach, instead of the expert?
+                        basically screen sharing with a voice call on top. We kept asking ourselves what expertise to communicate and how
+                        to create an environment that conveys the expertise with minimal involvement of the expert.
                     </p>
                     <p className="pp-body">
-                        The shift came when we landed on LEGO brickbuilding as our domain. Bricks snap to a grid.
-                        Layers are discrete and countable. Progress is spatially unambiguous — either the brick is
-                        in the right place or it isn&apos;t. That gave us something to react to automatically, without
-                        the expert having to watch and comment constantly.
+                        The shift came when we landed on LEGO brickbuilding as our domain.
                     </p>
+                    <ul className="pp-box-bullets" style={{ marginTop: 16, marginLeft: 32 }}>
+                        <li className="pp-box-bullet box-blue">Bricks snap to a grid</li>
+                        <li className="pp-box-bullet box-brown">Layers are discrete and countable</li>
+                        <li className="pp-box-bullet box-lbrown">Progress is spatially unambiguous (either the brick is
+                            in the right place or it isn&apos;t)</li>
+                        <li className="pp-box-bullet box-rbrown">Experts can react to the student's progress automatically</li>
+                    </ul>
 
                     <blockquote className="pp-pull-quote">
-                        The environment should close the feedback loop — the expert&apos;s role is to be available
-                        when the environment can&apos;t handle it, not to narrate every step.
+                        The environment should close the feedback loop, the expert&apos;s role is to be available
+                        when the environment can&apos;t handle teaching the expertise.
                     </blockquote>
-
-                    <p className="pp-body">
-                        From that reframe, the core design fell into place: a ghost model overlay tells the student
-                        what to build, haptic feedback confirms when they&apos;ve built it correctly, and voice is reserved
-                        for when something goes wrong and a human needs to step in.
-                    </p>
                 </div>
 
                 {/* Sketches 2×2 */}
                 <div className="pp-subsection">
                     <span className="pp-badge">Early Sketches</span>
+                    <p>
+                        With a clear direction, we explored different input and output methods and the number of experts and novices involved in
+                        the learning environment.
+                    </p>
                     <div className="pp-2x2-grid">
-                        <div className="pp-2x2-cell">
-                            <ImagePlaceholder label="Real-time corrections sketch" aspect="4/3" />
-                            <p className="pp-image-caption">Real-time corrections — Fig. A1</p>
+                        <div>
+                            <img
+                                src="/assets/cad-expertise/sketch-1.png"
+                            />
+                            <p className="pp-image-caption">Real-time corrections</p>
                         </div>
-                        <div className="pp-2x2-cell">
-                            <ImagePlaceholder label="Screen-sharing + voice annotation sketch" aspect="4/3" />
-                            <p className="pp-image-caption">Screen-sharing + voice annotation — Fig. A1</p>
+                        <div>
+                            <img
+                                src="/assets/cad-expertise/sketch-2.png"
+                            />
+                            <p className="pp-image-caption">Screen-sharing + voice annotation</p>
                         </div>
-                        <div className="pp-2x2-cell">
-                            <ImagePlaceholder label="Input/output taxonomy sketch — JJ" aspect="4/3" />
-                            <p className="pp-image-caption">Input/output taxonomy — Fig. A2</p>
+                        <div>
+                            <img
+                                src="/assets/cad-expertise/sketch-3.jpg"
+                            />
+                            <p className="pp-image-caption">Input/output taxonomy — JJ</p>
                         </div>
-                        <div className="pp-2x2-cell">
-                            <ImagePlaceholder label="Lecture-style configuration diagram — JJ" aspect="4/3" />
-                            <p className="pp-image-caption">Lecture-style configuration — Fig. A2</p>
+                        <div>
+                            <img
+                                src="/assets/cad-expertise/sketch-4.jpg"
+                            />
+                            <p className="pp-image-caption">Lecture-style configuration — JJ</p>
                         </div>
                     </div>
                 </div>
@@ -119,8 +128,8 @@ export default function ProjectPage() {
                         <div className="pp-scope-card">
                             <span className="pp-scope-card-label">Domain</span>
                             <p className="pp-body-small">
-                                We chose BrickLink over Tinkercad because Tinkercad would&apos;ve required implementing
-                                complex 3D primitives. LEGO bricks have a discrete, grid-based logic that maps
+                                We chose to model our system after BrickLink over Tinkercad because Tinkercad would&apos;ve required implementing
+                                complex 3D primitives, with BrickLink as a guide, it was much easier to simplify functionalities. LEGO bricks have a discrete, grid-based logic that maps
                                 cleanly onto a layered lesson structure.
                             </p>
                         </div>
@@ -128,7 +137,7 @@ export default function ProjectPage() {
                             <span className="pp-scope-card-label">Input</span>
                             <p className="pp-body-small">
                                 We chose voice over gesture because both inputs would&apos;ve covered the same functions.
-                                Voice won because we were already planning an audio discussion channel — same hardware,
+                                Voice was our final choice because we were already planning an audio discussion feauture, same hardware,
                                 same infrastructure, no redundancy.
                             </p>
                         </div>
@@ -136,15 +145,14 @@ export default function ProjectPage() {
                             <span className="pp-scope-card-label">Haptics</span>
                             <p className="pp-body-small">
                                 We used phone vibration instead of custom hardware because there was no time to build
-                                a physical haptic device. A phone receiving an email notification is a reasonable
-                                stand-in, and an honest one to document.
+                                a physical haptic device for students. And email notification as a haptic stand-in for experts.
                             </p>
                         </div>
                         <div className="pp-scope-card">
                             <span className="pp-scope-card-label">Configuration</span>
                             <p className="pp-body-small">
-                                We went lecture-style — one expert, many novices — because it gave us the clearest
-                                separation between the two portals and a real reason to build session management
+                                We went lecture-style meaning one expert, many novices. This was because it gave us the clearest
+                                separation between the two portals and a reason to build session management
                                 infrastructure.
                             </p>
                         </div>
@@ -153,8 +161,10 @@ export default function ProjectPage() {
 
                 {/* Converging sketch */}
                 <div className="pp-subsection">
-                    <ImagePlaceholder label="Converging sketch / team whiteboard — Fig. 1" aspect="16/7" />
-                    <p className="pp-image-caption">Team whiteboard — converging on the concept</p>
+                    <img
+                        src="/assets/cad-expertise/meeting.jpg"
+                    />
+                    <p className="pp-image-caption">Team meeting to discuss concept</p>
                 </div>
             </section>
 
@@ -172,46 +182,46 @@ export default function ProjectPage() {
                     <div className="pp-numbered-item">
                         <span className="pp-numbered-label">01</span>
                         <div className="pp-numbered-body">
-                            <h3 className="pp-numbered-title">Ghost overlay sets the target.</h3>
+                            <h3 className="pp-numbered-title">Ghost overlay sets the target</h3>
                             <p className="pp-body-small">
-                                Semi-transparent wireframe bricks — defined in JSON and rendered inside the same
-                                Three.js canvas as the student&apos;s real bricks — show exactly what needs to be built.
-                                The target is spatially present, not described in text.
+                                Semi-transparent wireframe bricks defined in JSON and rendered inside the same
+                                Three.js canvas as the student&apos;s real bricks shows exactly what needs to be built.
                             </p>
                         </div>
                     </div>
                     <div className="pp-numbered-item">
                         <span className="pp-numbered-label">02</span>
                         <div className="pp-numbered-body">
-                            <h3 className="pp-numbered-title">Student builds.</h3>
+                            <h3 className="pp-numbered-title">Student builds</h3>
                             <p className="pp-body-small">
-                                Bricks snap to grid, collision detection prevents overlap, layers track automatically
-                                from brick Y positions. The environment enforces correctness at the placement level.
+                                The bricks snap to grid, layers track completion, students can delete bricks
+                                that were wrongly placed. Students can also drag bricks along the grid and view the grid
+                                from different camera angles.
                             </p>
                         </div>
                     </div>
-                    <div className="pp-numbered-item">
+                    <div className="pp-numbered-item" style={{ borderBottom: "none" }}>
                         <span className="pp-numbered-label">03</span>
                         <div className="pp-numbered-body">
-                            <h3 className="pp-numbered-title">Layer complete → phone vibrates.</h3>
+                            <h3 className="pp-numbered-title">Haptic feedback on completion</h3>
                             <p className="pp-body-small">
-                                Socket.IO triggers a Nodemailer email to the student&apos;s linked phone. Confirmation
-                                is physical, not just a screen notification. We imagined this eventually being a
-                                3D-printed brick on the desk that buzzes — the phone is a stand-in for now.
+                                Socket.IO triggers haptic feedback to the student&apos;s linked phone. Confirmation
+                                is physical, not just a screen notification. Ideally, we imagine this eventually being a
+                                3D-printed brick on the desk that buzzes. Feedback on correct brick placement and a longer feedback for layer completion.
                             </p>
                         </div>
                     </div>
 
-                    <div className="pp-loop-divider">expert enters here if needed</div>
+                    <div className="pp-loop-divider">expert enters as needed</div>
 
                     <div className="pp-numbered-item">
                         <span className="pp-numbered-label">04</span>
                         <div className="pp-numbered-body">
-                            <h3 className="pp-numbered-title">Student says &ldquo;Help&rdquo; → expert&apos;s phone vibrates.</h3>
+                            <h3 className="pp-numbered-title">Experts receive haptic feedback</h3>
                             <p className="pp-body-small">
-                                Chrome&apos;s Web Speech API listens continuously for the keyword. When detected,
+                                Chrome&apos;s Web Speech API listens continuously for the keyword, "Help". When detected,
                                 Nodemailer fires a notification to the expert&apos;s device. The expert is physically
-                                alerted — no polling, no screen-watching required.
+                                alerted to check in on student.
                             </p>
                         </div>
                     </div>
@@ -220,8 +230,8 @@ export default function ProjectPage() {
                         <div className="pp-numbered-body">
                             <h3 className="pp-numbered-title">Expert navigates to student&apos;s workspace and talks.</h3>
                             <p className="pp-body-small">
-                                Either party presses &ldquo;Talk&rdquo; to open an audio line via getUserMedia over the socket.
-                                The expert sees live layer progress — Complete, In Progress, Locked — on the student&apos;s side.
+                                Either party presses &ldquo;Talk&rdquo; to open an audio line.
+                                The expert sees the student's live layer progress at all times and can enter their workspace to answer their question.
                             </p>
                         </div>
                     </div>
@@ -230,12 +240,16 @@ export default function ProjectPage() {
                 {/* Student + expert views side by side */}
                 <div className="pp-left-right" style={{ marginTop: 48 }}>
                     <div>
-                        <ImagePlaceholder label="Ghost model overlay — Pyramid module with semi-transparent ghost bricks (Fig. 8)" aspect="4/3" />
-                        <p className="pp-image-caption">Student view — ghost overlay in action</p>
+                        <img
+                            src="/assets/cad-expertise/student-view-1.png"
+                        />
+                        <p className="pp-image-caption">Student workspace view</p>
                     </div>
                     <div>
-                        <ImagePlaceholder label="Expert workspace — layer progress panel: Complete / In Progress / Locked" aspect="4/3" />
-                        <p className="pp-image-caption">Expert view — live layer progress</p>
+                        <img
+                            src="/assets/cad-expertise/expert-view-1.png"
+                        />
+                        <p className="pp-image-caption">Expert view</p>
                     </div>
                 </div>
             </section>
@@ -245,26 +259,30 @@ export default function ProjectPage() {
                 <h2 className="pp-section-centered-heading">How I Built It</h2>
 
                 <p className="pp-body" style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 48px" }}>
-                    My work covered the full stack — from Figma prototypes through to the deployed server.
+                    My work covered the full stack, from Figma prototypes through to the deployed server.
                 </p>
 
                 {/* Hi-fi Prototyping */}
                 <div className="pp-subsection">
                     <span className="pp-badge">Hi-Fi Prototyping</span>
                     <p className="pp-body">
-                        I designed both portals in Figma before writing any component code, establishing the visual
-                        language and navigation structure the team built against. I used Figma&apos;s Dev Mode MCP inside
-                        Antigravity IDE — passing node URLs directly into coding prompts — so the model could read the
-                        design before generating components. Significantly less translation overhead between design and code.
+                        I designed both dashboards in Figma before writing any component code, establishing the visual
+                        language and navigation structure the team built against. I used Figma&apos;s Dev Mode MCP with
+                        Antigravity IDE, passing node URLs directly into coding prompts, so the model could read the
+                        design before generating components. This resulted in significantly less translation overhead between design and code.
                     </p>
                     <div className="pp-left-right">
                         <div>
-                            <ImagePlaceholder label="Figma hi-fi prototype — Expert portal (Fig. 2)" aspect="4/3" />
-                            <p className="pp-image-caption">Expert portal</p>
+                            <img
+                                src="/assets/cad-expertise/expert-view-fig.png"
+                            />
+                            <p className="pp-image-caption">Expert dashboard</p>
                         </div>
                         <div>
-                            <ImagePlaceholder label="Figma hi-fi prototype — Student portal (Fig. 3)" aspect="4/3" />
-                            <p className="pp-image-caption">Student portal</p>
+                            <img
+                                src="/assets/cad-expertise/student-view-fig.png"
+                            />
+                            <p className="pp-image-caption">Student dashboard</p>
                         </div>
                     </div>
                 </div>
@@ -273,7 +291,7 @@ export default function ProjectPage() {
                 <div className="pp-subsection">
                     <span className="pp-badge">The 3D Environment</span>
                     <p className="pp-body">
-                        Built from scratch in Three.js and @react-three/fiber — no off-the-shelf CAD library.
+                        Built from scratch in Three.js and @react-three/fiber  no off-the-shelf CAD library.
                         The components that required the most iteration:
                     </p>
                     <div className="pp-tech-list">
@@ -292,22 +310,10 @@ export default function ProjectPage() {
                         <div className="pp-tech-row">
                             <span className="pp-tech-name">Layer system</span>
                             <span className="pp-tech-desc">
-                                Derived from brick Y positions — Math.floor(y) + 1 — driving the layers panel
+                                Derived from brick Y positions — Math.floor(y) + 1 driving the layers panel
                                 dynamically without any manual tracking.
                             </span>
                         </div>
-                        <div className="pp-tech-row">
-                            <span className="pp-tech-name">Camera controls</span>
-                            <span className="pp-tech-desc">
-                                Configuring OrbitControls so right-drag orbits and left-click places bricks is a
-                                non-default setup. The default behavior conflicted with placement and would&apos;ve
-                                made the interface frustrating to use.
-                            </span>
-                        </div>
-                    </div>
-                    <div style={{ marginTop: 32 }}>
-                        <ImagePlaceholder label="3D brick environment — baseplate, placed bricks, layers panel, and ghost overlay all visible" aspect="16/9" />
-                        <p className="pp-image-caption">The CAD environment — all components in view</p>
                     </div>
                 </div>
 
@@ -316,8 +322,8 @@ export default function ProjectPage() {
                     <span className="pp-badge">Dashboards & Session Architecture</span>
                     <p className="pp-body">
                         Both portals built in Next.js App Router with React, TypeScript, and Tailwind CSS v4.
-                        The expert-side session creation flow — name a session, assign a module, share a join
-                        code — runs over a Socket.IO server deployed separately on Render, with the app on Vercel.
+                        The expert-side session creation flow name a session, assign a module, share a join
+                        code runs over a Socket.IO server deployed separately on Render, with the app on Vercel.
                         Socket.IO syncs student workspace state to the expert in real time, driving the layer progress panel.
                     </p>
                     <div className="pp-left-right">
@@ -426,7 +432,19 @@ export default function ProjectPage() {
 
             {/* Soundtrack */}
             <div className="pp-soundtrack">
-                <p className="pp-soundtrack-label">My Project Soundtrack</p>
+                <p className="pp-soundtrack-label">
+                    My Project Soundtrack
+                </p>
+                <iframe
+                    data-testid="embed-iframe"
+                    style={{ borderRadius: '12px', marginLeft: '25%', marginTop: '2%' }}
+                    src="https://open.spotify.com/embed/track/4ddpHR6drcPRGPL5jYFluh?utm_source=generator&theme=0"
+                    width="50%"
+                    height="152"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
             </div>
 
         </ProjectLayout>

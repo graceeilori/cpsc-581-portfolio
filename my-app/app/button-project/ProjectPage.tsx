@@ -231,7 +231,8 @@ export default function ProjectPage() {
                 <iframe data-testid="embed-iframe"
                     style={{ borderRadius: '12px', marginLeft: '25%', marginTop: '2%' }}
                     src="https://open.spotify.com/embed/track/5htqXNlhpzVMZomfRzT0ZE?utm_source=generator&theme=0"
-                    width="50%" height="152"
+                    width="50%"
+                    height="152"
                     frameBorder="0"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy">
