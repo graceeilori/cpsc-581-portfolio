@@ -524,8 +524,8 @@
   }
 
   .card:hover .cardInfo {
-    background-color: #422D24;
-    border-color: #422D24;
+    background-color: #4F362B;
+    border-color: #4F362B;
   }
 
   .cardInfoTitle {
@@ -799,7 +799,7 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #888;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   /* Body text paragraph */
@@ -921,6 +921,24 @@
   .pp-box-bullet.box-red::before {
     background: #DB0B0E;
   }
+
+  .pp-box-bullet.box-blue::before {
+    background: #4C59E6;
+  }
+
+  .pp-box-bullet.box-brown::before {
+    background: #9A5C15;
+  }
+
+  .pp-box-bullet.box-lbrown::before {
+    background: #E8B987;
+  }
+
+  .pp-box-bullet.box-rbrown::before {
+    background: #86280F;
+  }
+
+
 
   .code-strip {
     position: relative;
@@ -1073,8 +1091,16 @@
   .pp-2x2-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 24px;
+    gap: 40px;
+    margin-top: 32px;
+  }
+
+  .pp-2x2-grid img {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .pp-2x2-cell {
