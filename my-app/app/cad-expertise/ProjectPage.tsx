@@ -247,7 +247,7 @@ export default function ProjectPage() {
                     </div>
                     <div>
                         <img
-                            src="/assets/cad-expertise/expert-view-1.png"
+                            src="/assets/cad-expertise/expert-view.png"
                         />
                         <p className="pp-image-caption">Expert view</p>
                     </div>
@@ -321,19 +321,23 @@ export default function ProjectPage() {
                 <div className="pp-subsection">
                     <span className="pp-badge">Dashboards & Session Architecture</span>
                     <p className="pp-body">
-                        Both portals built in Next.js App Router with React, TypeScript, and Tailwind CSS v4.
+                        Both dashboards built in Next.js App Router with React, TypeScript, and Tailwind CSS v4.
                         The expert-side session creation flow name a session, assign a module, share a join
                         code runs over a Socket.IO server deployed separately on Render, with the app on Vercel.
                         Socket.IO syncs student workspace state to the expert in real time, driving the layer progress panel.
                     </p>
                     <div className="pp-left-right">
                         <div>
-                            <ImagePlaceholder label="Expert dashboard — session creation modal, student roster with Needs Help flags (Fig. 6)" aspect="4/3" />
+                            <img
+                                src="/assets/cad-expertise/expert-view-2.png"
+                            />
                             <p className="pp-image-caption">Expert dashboard</p>
                         </div>
                         <div>
-                            <ImagePlaceholder label="Student module library — Completed / In Progress / Locked states (Fig. 7)" aspect="4/3" />
-                            <p className="pp-image-caption">Student module library</p>
+                            <img
+                                src="/assets/cad-expertise/student-view-2.png"
+                            />
+                            <p className="pp-image-caption">Student dashboard</p>
                         </div>
                     </div>
                 </div>
@@ -341,21 +345,6 @@ export default function ProjectPage() {
 
             {/* What Broke */}
             <section className="pp-section">
-                <h2 className="pp-section-centered-heading">What Broke & What I Learned</h2>
-
-                <div className="pp-subsection">
-                    <span className="pp-badge">The Voice Pipeline Pivot</span>
-                    <p className="pp-body">
-                        The original plan: pipe audio to an AI text API, parse the output for &ldquo;Help.&rdquo; In practice,
-                        the latency between speech and detection broke the real-time feel completely — by the time
-                        the keyword was flagged, the moment had passed. We switched to Chrome&apos;s built-in
-                        SpeechRecognition API, which processes locally and is nearly instant.
-                    </p>
-                    <p className="pp-body">
-                        It was also faster to implement. The lesson: measure the pipeline before committing to it.
-                        We assumed the smarter approach would be better; the browser-native approach was better and simpler.
-                    </p>
-                </div>
 
                 <div className="pp-subsection" style={{ marginBottom: 0 }}>
                     <span className="pp-badge">What Didn&apos;t Ship</span>
@@ -370,16 +359,15 @@ export default function ProjectPage() {
                         <div className="pp-status-item">
                             <span className="pp-status-tag status-missed">Missed</span>
                             <p className="pp-body-small" style={{ marginBottom: 0 }}>
-                                Expert voice navigation — saying a student&apos;s name to jump to their workspace — was
+                                Expert voice navigation: saying a student&apos;s name to jump to their workspace was
                                 fully designed and documented but not implemented. It became mouse-based navigation instead.
                             </p>
                         </div>
                         <div className="pp-status-item">
                             <span className="pp-status-tag status-scoped">Scoped</span>
                             <p className="pp-body-small" style={{ marginBottom: 0 }}>
-                                The CAD environment is intentionally limited to basic brick placement. Full tooling —
-                                rotation, color, deletion — wasn&apos;t the evaluation criterion. The interaction loop was.
-                                That was a deliberate call, not an oversight.
+                                The CAD environment is intentionally limited to brick placement, rotation, and deletion. Full tooling
+                                such as custom colors and bricks weren&apos;t the evaluation criterion. The interaction loop was.
                             </p>
                         </div>
                     </div>
@@ -388,7 +376,7 @@ export default function ProjectPage() {
                         Building a 3D environment from scratch was the most technically demanding thing I did in this
                         course. But the bigger lesson from RBrick was about scope: understanding what the brief is
                         actually evaluating, and making sure the hardest parts of your implementation are in service
-                        of that — not adjacent to it.
+                        of that not adjacent to it.
                     </p>
                 </div>
             </section>
@@ -397,11 +385,19 @@ export default function ProjectPage() {
             <section className="pp-section">
                 <h2 className="pp-section-centered-heading">Final Submission</h2>
 
-                <div className="pp-video-container">
-                    <video controls preload="none">
-                        <source src="/assets/cad-expertise/project-2-demo-video.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+                <div className="pp-2x2-grid" style={{ gap: 2 }}>
+                    <div className="pp-video-container">
+                        <video controls preload="none">
+                            <source src="/assets/cad-expertise/RBrickDemoRecording.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div className="pp-video-container">
+                        <video controls preload="none">
+                            <source src="/assets/cad-expertise/VibrationExample.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
 
                 <div className="pp-links-row">
