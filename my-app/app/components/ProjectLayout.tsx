@@ -5,7 +5,7 @@ import Link from "next/link";
 
 interface ProjectLayoutProps {
     className?: string;
-    heroImage: string;
+    heroImage?: string;
     children?: React.ReactNode;
 }
 
@@ -28,20 +28,21 @@ export default function ProjectLayout({
             </motion.header>
             <div className="navSpacer" />
 
-            <div style={{ position: "relative" }}>
-                <div style={{ overflow: "hidden" }}>
-                    <motion.img
-                        src={heroImage}
-                        alt="Hero Image"
-                        style={{ width: "100%", display: "block" }}
-                    />
+            {heroImage && (
+                <div style={{ position: "relative" }}>
+                    <div style={{ overflow: "hidden" }}>
+                        <motion.img
+                            src={heroImage}
+                            alt="Hero Image"
+                            style={{ width: "100%", display: "block" }}
+                        />
+                    </div>
                 </div>
-            </div>
+            )}
 
-            <motion.div className="caseStudy">
+            <motion.div className={heroImage ? "caseStudy" : "caseStudyNoHero"}>
                 {children}
             </motion.div>
         </div>
     );
 }
-

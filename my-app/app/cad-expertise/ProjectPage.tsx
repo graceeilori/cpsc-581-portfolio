@@ -15,7 +15,6 @@ export default function ProjectPage() {
     return (
         <ProjectLayout
             className="projectPage"
-            heroImage="/assets/cad-expertise/project-2-hero.png"
         >
             {/* Title Section */}
             <div className="projectTitleSection">

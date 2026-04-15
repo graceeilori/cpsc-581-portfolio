@@ -7,7 +7,6 @@ export default function ProjectPage() {
     return (
         <ProjectLayout
             className="projectPage"
-            heroImage="/assets/button-project/project-1-hero.png"
         >
             <div className="projectTitleSection">
                 <h1 className="titleText">A Family of Buttons</h1>
@@ -221,11 +220,6 @@ export default function ProjectPage() {
                             cpsc-button-project.vercel.app
                         </a>
                     </div>
-                </div>
-
-                <div className="pp-team-row">
-                    <span className="pp-team-label">Team</span>
-                    <span className="pp-team-names">Grace, Chris, JJ, Caleb</span>
                 </div>
             </section>
 
