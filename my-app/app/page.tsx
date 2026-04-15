@@ -31,7 +31,7 @@ const mainProjects: Project[] = [
   },
   {
     id: 2,
-    title: "CAD Expertise Sharing",
+    title: "RBrick",
     description: "A real-time collaborative CAD platform using ghost overlays, haptic feedback, and voice to let experts guide novices remotely.",
     href: "/cad-expertise",
     thumbnailImg: "/assets/cad-expertise/project-2-cover.png",
@@ -39,7 +39,7 @@ const mainProjects: Project[] = [
   },
   {
     id: 3,
-    title: "Augmented Eating Experience",
+    title: "Convivium",
     description: "Augumented objects that sense and signal passively to improve the dining experience of hosts during large parties.",
     href: "/aug-experience",
     thumbnailImg: "/assets/aug-experience/project-3-cover.png",
@@ -188,6 +188,7 @@ export default function Home() {
         transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
       />
 
+      {/*
       <motion.div variants={containerVariants} initial="hidden" animate="show">
         <div className="bonusGrid">
           {bonusProjects.map((project, i) => (
@@ -197,6 +198,7 @@ export default function Home() {
           ))}
         </div>
       </motion.div>
+      */}
 
     </div>
   );

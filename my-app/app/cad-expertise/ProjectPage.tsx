@@ -359,7 +359,7 @@ export default function ProjectPage() {
                         <div className="pp-status-item">
                             <span className="pp-status-tag status-missed">Missed</span>
                             <p className="pp-body-small" style={{ marginBottom: 0 }}>
-                                Expert voice navigation — saying a student&apos;s name to jump to their workspace was
+                                Expert voice navigation: saying a student&apos;s name to jump to their workspace was
                                 fully designed and documented but not implemented. It became mouse-based navigation instead.
                             </p>
                         </div>
@@ -385,11 +385,19 @@ export default function ProjectPage() {
             <section className="pp-section">
                 <h2 className="pp-section-centered-heading">Final Submission</h2>
 
-                <div className="pp-video-container">
-                    <video controls preload="none">
-                        <source src="/assets/cad-expertise/RBrickDemoRecording.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+                <div className="pp-2x2-grid" style={{ gap: 2 }}>
+                    <div className="pp-video-container">
+                        <video controls preload="none">
+                            <source src="/assets/cad-expertise/RBrickDemoRecording.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div className="pp-video-container">
+                        <video controls preload="none">
+                            <source src="/assets/cad-expertise/VibrationExample.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
 
                 <div className="pp-links-row">
