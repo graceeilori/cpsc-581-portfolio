@@ -524,8 +524,8 @@
   }
 
   .card:hover .cardInfo {
-    background-color: #4F362B;
-    border-color: #4F362B;
+    background-color: #5C3F32;
+    border-color: #5C3F32;
   }
 
   .cardInfoTitle {
@@ -1337,6 +1337,388 @@
     .pp-status-item {
       grid-template-columns: 1fr;
       gap: 12px;
+    }
+  }
+
+  /* ══════════════════════════════
+     BONUS SECTION — card button
+  ══════════════════════════════ */
+  .bonusCardBtn {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+  }
+
+  /* ══════════════════════════════
+     BONUS OVERLAY BACKDROP
+  ══════════════════════════════ */
+  .bonusOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 26, 26, 0.45);
+    backdrop-filter: blur(3px);
+    z-index: 100;
+  }
+
+  /* Shared close button */
+  .bonusCloseBtn {
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #888;
+    padding: 8px 16px;
+    transition: border-color 0.2s, color 0.2s;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .bonusCloseBtn:hover {
+    border-color: #6B493A;
+    color: #6B493A;
+  }
+
+  /* ══════════════════════════════
+     THE CREED — full-screen slide-up panel
+  ══════════════════════════════ */
+  .creedPanel {
+    position: fixed;
+    inset: 0;
+    background: #faf7f2;
+    z-index: 200;
+    overflow-y: auto;
+  }
+
+  .creedInner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 80px 40px 100px;
+  }
+
+  .creedTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 80px;
+  }
+
+  .creedHeading {
+    font-family: var(--font-prata), Georgia, serif;
+    font-size: 48px;
+    font-weight: 400;
+    font-style: italic;
+    color: #1a1a1a;
+    line-height: 1.1;
+  }
+
+  .creedHeading span {
+    color: #8b2020;
+  }
+
+  .belief {
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .belief:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .beliefNum {
+    font-size: 11px;
+    color: #8b2020;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .beliefStatement {
+    font-family: var(--font-prata), Georgia, serif;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    color: #1a1a1a;
+    line-height: 1.4;
+  }
+
+  .beliefBody {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.85;
+  }
+
+  .beliefBody p {
+    margin-bottom: 12px;
+  }
+
+  .beliefBody p:last-child {
+    margin: 0;
+  }
+
+  /* ══════════════════════════════
+     THE SHED — centered popup
+  ══════════════════════════════ */
+  .shedPopup {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(640px, 90vw);
+    height: fit-content;
+    max-height: 100vh;
+    overflow-y: auto;
+    background: #faf7f2;
+    z-index: 200;
+    padding: 40px;
+  }
+
+  .shedPopupHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .shedPopupTitle {
+    font-family: var(--font-prata), Georgia, serif;
+    font-size: 32px;
+    font-weight: 400;
+    font-style: italic;
+    color: #1A1A1A;
+  }
+
+  .shedPopupTitle span {
+    color: #4497A1;
+  }
+
+  .shedCategory {
+    margin-bottom: 24px;
+  }
+
+  .shedCatLabel {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 10px;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .toolGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .toolTile {
+    background: #9dcdd4;
+    color: #1a1a1a;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background 0.15s, transform 0.15s, color 0.15s;
+    cursor: default;
+    position: relative;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .toolTile:hover {
+    background: #5fa8b0;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .toolTip {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    z-index: 10;
+    border-radius: 2px;
+  }
+
+  .toolTile:hover .toolTip {
+    opacity: 1;
+  }
+
+  .toolTile.design {
+    background: #e8cfc4;
+  }
+
+  .toolTile.design:hover {
+    background: #c9a090;
+    color: #fff;
+  }
+
+  .toolTile.research {
+    background: #e8e0d0;
+  }
+
+  .toolTile.research:hover {
+    background: #b8a898;
+    color: #fff;
+  }
+
+  /* ══════════════════════════════
+     THE CORNER — right-side drawer
+  ══════════════════════════════ */
+  .cornerDrawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(560px, 92vw);
+    background: #f5f0e8;
+    z-index: 200;
+    overflow-y: auto;
+    padding: 48px 40px;
+  }
+
+  .cornerDrawerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .cornerDrawerTitle {
+    font-family: var(--font-prata), Georgia, serif;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 400;
+    color: #1A1A1A;
+  }
+
+  .cornerDrawerTitle span {
+    color: #A26743;
+  }
+
+  .cornerSubtitle {
+    font-size: 13px;
+    color: #888;
+    margin-top: 6px;
+    line-height: 1.5;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .sketchBoard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .sketchItem {
+    background: #faf7f2;
+    padding: 0;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .sketchItem:hover {
+    transform: rotate(1deg) scale(1.02);
+  }
+
+  .sketchItem:nth-child(even):hover {
+    transform: rotate(-1deg) scale(1.02);
+  }
+
+  .sketchItem.wide {
+    grid-column: span 2;
+  }
+
+  .sketchImg {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #e8e4dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .skLabel {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+  }
+
+  .skSub {
+    font-size: 10px;
+    color: #bbb;
+    text-align: center;
+    padding: 0 12px;
+  }
+
+  .sketchMeta {
+    padding: 10px 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sketchProject {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 0.05em;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .sketchType {
+    font-size: 10px;
+    color: #5fa8b0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 500px) {
+    .belief {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .sketchBoard {
+      grid-template-columns: 1fr;
+    }
+
+    .sketchItem.wide {
+      grid-column: span 1;
+    }
+
+    .creedInner {
+      padding: 60px 24px 80px;
+    }
+
+    .shedPopup {
+      padding: 28px;
     }
   }
 
