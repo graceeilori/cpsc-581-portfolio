@@ -160,40 +160,24 @@ const beliefs = [
     num: "01",
     statement: "The process is evidence.",
     body: [
-      "A design decision you can't explain probably wasn't a decision — it was a default. I document what I chose and what I didn't, and why both matter.",
-      "The most interesting part of any project is usually a pivot: the moment the obvious approach failed and something better emerged from the constraint. That moment deserves as much space in a case study as the final result.",
+      "A design decision that can't be explained probably wasn't a decision, it was a default. This was a lesson I learnt throughout this course.",
+      "Overtime, I have learnt to document what I chose and what I didn't, and why both matter. Showing the moments the obvious approach failed and something better emerged.",
     ],
   },
   {
     num: "02",
-    statement: "Honest beats polished.",
+    statement: "Research and craft aren't separate tracks.",
     body: [
-      "The most useful thing in a case study is what broke and what you'd do differently. I'd rather show a pivot than pretend the first idea was always right.",
-      "This isn't modesty — it's precision. Knowing why something didn't work is design knowledge. Hiding it helps no one.",
+      "Building is a way of asking questions and when a prototype fails, we go back to the \"drawing board\".",
+      "Design is an iterative process and I believe design informs what's worth studying, and studying informs what's worth building. The loop is the method. #DesignThinking",
     ],
   },
   {
     num: "03",
-    statement: "The environment should do work.",
+    statement: "Scoping is a design decision.",
     body: [
-      "If users have to be told how something works, the design hasn't finished its job yet. The best interfaces teach through use — the feedback loop is built in, not bolted on.",
-      "I think about this on both sides of my work: the systems I build for research and the interfaces I design for people. In both cases, the goal is the same — reduce the cognitive load of figuring out what to do next.",
-    ],
-  },
-  {
-    num: "04",
-    statement: "Research and craft aren't separate tracks.",
-    body: [
-      "My work sits at the intersection of HCI research and implementation. Building is a way of asking questions. A prototype is a hypothesis. A broken prototype is data.",
-      "I don't think of design and research as sequential — design informs what's worth studying, and studying informs what's worth building. The loop is the method.",
-    ],
-  },
-  {
-    num: "05",
-    statement: "Scope is a design decision.",
-    body: [
-      "Understanding what a brief is actually evaluating — and making sure the hardest parts of your work are in service of that — is its own skill. Doing impressive things that are adjacent to the problem isn't the same as solving it.",
-      "Good scope means knowing what to leave out, and being able to say why clearly.",
+      "Understanding what a project brief is evaluating and making sure the hardest parts of my team's work are in service of that.",
+      "Arriving at a good scope means we know what to leave out, and can explain why clearly.",
     ],
   },
 ];
@@ -219,6 +203,7 @@ const shedCategories = [
       { name: "Tailwind CSS", tip: "Family, RBrick, Portfolio", type: "" },
       { name: "Socket.IO", tip: "RBrick", type: "" },
       { name: "HTML/CSS", tip: "Family, RBrick, Portfolio", type: "" },
+      { name: "Antigravity IDE", tip: "Family, RBrick, Portfolio", type: "" },
     ],
   },
   {
@@ -408,9 +393,14 @@ export default function Home() {
           >
             <div className="creedInner">
               <div className="creedTop">
-                <h2 className="creedHeading">
-                  The<br /><span>Creed</span>
-                </h2>
+                <div>
+                  <h2 className="creedHeading">
+                    The <br></br><span>Creed</span>
+                  </h2>
+                  <p className="cornerSubtitle">
+                    My design philosophy<br />
+                  </p>
+                </div>
                 <button className="bonusCloseBtn" onClick={close}>Close ✕</button>
               </div>
 
@@ -445,7 +435,7 @@ export default function Home() {
                   The <span>Shed</span>
                 </h2>
                 <p className="cornerSubtitle">
-                  Arsenal for the course.<br />
+                  Arsenal for the course<br />
                 </p>
               </div>
               <button className="bonusCloseBtn" onClick={close}>Close ✕</button>
@@ -486,7 +476,7 @@ export default function Home() {
                   The <span>Corner</span>
                 </h2>
                 <p className="cornerSubtitle">
-                  Sketches and scribbles from class activities.<br />
+                  Sketches and scribbles from class activities<br />
                 </p>
               </div>
               <button className="bonusCloseBtn" onClick={close}>Close ✕</button>
