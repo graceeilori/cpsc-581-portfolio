@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 type Project = {
   id: number;
   title: string;
+  description: string;
   href: string;
   thumbnailImg?: string;
   available: boolean;
@@ -23,23 +24,26 @@ const mainProjects: Project[] = [
   {
     id: 1,
     title: "A Family of Buttons",
+    description: "An interactive solar system where each planet is a team member's button, revealing personality through orbit and interaction.",
     href: "/button-project",
-    thumbnailImg: "/assets/button-project-cover.png",
+    thumbnailImg: "/assets/button-project/project-1-cover.png",
     available: true,
   },
   {
     id: 2,
     title: "CAD Expertise Sharing",
-    href: "/button-project",
-    thumbnailImg: "/assets/cad-expertise-cover.png",
+    description: "A real-time collaborative CAD platform using ghost overlays, haptic feedback, and voice to let experts guide novices remotely.",
+    href: "/cad-expertise",
+    thumbnailImg: "/assets/cad-expertise/project-2-cover.png",
     available: true,
   },
   {
     id: 3,
     title: "Augmented Eating Experience",
-    href: "/button-project",
-    thumbnailImg: "/assets/placeholder.png",
-    available: false,
+    description: "Augumented objects that sense and signal passively to improve the dining experience of hosts during large parties.",
+    href: "/aug-experience",
+    thumbnailImg: "/assets/aug-experience/project-3-cover.png",
+    available: true,
   },
 ];
 
@@ -48,31 +52,26 @@ const bonusProjects: Bonus[] = [
     id: 4,
     title: "The Corner",
     href: "/project-4",
-    thumbnailImg: "/assets/bonus-1-cover.png",
+    thumbnailImg: "/assets/bonus/cover-1.png",
     available: false,
   },
   {
     id: 5,
     title: "The Shed",
     href: "/project-5",
-    thumbnailImg: "/assets/bonus-2-cover.png",
+    thumbnailImg: "/assets/bonus/cover-2.png",
     available: false,
   },
   {
     id: 6,
     title: "The Creed",
     href: "/project-6",
-    thumbnailImg: "/assets/bonus-3-cover.png",
+    thumbnailImg: "/assets/bonus/cover-3.png",
     available: false,
   },
 ];
 
 const allProjects = [...mainProjects, ...bonusProjects];
-
-function ProjectThumbnail({ project }: { project: (typeof allProjects)[0] }) {
-  if (project.thumbnailImg) return <img src={project.thumbnailImg} alt={project.title} className="projectImage" />;
-  return null;
-}
 
 function BonusThumbnail({ project }: { project: (typeof bonusProjects)[0] }) {
   if (project.thumbnailImg) return <img src={project.thumbnailImg} alt={project.title} className="bonusImage" />;
@@ -89,30 +88,25 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-function ProjectCard({ project, thumbnailClass }: { project: (typeof allProjects)[0]; thumbnailClass: string }) {
+function ProjectCard({ project }: { project: Project }) {
   const CardWrapper = project.available ? Link : "div";
   const cardProps = project.available ? { href: project.href } : {};
   const cardClass = ["card", project.available ? "clickable" : "disabled"].join(" ");
 
   return (
     <CardWrapper {...(cardProps as any)} className={cardClass}>
-      <div className={thumbnailClass}>
+      <div className="thumbnail">
         <div className="thumbnailInner">
-          <ProjectThumbnail project={project} />
+          {project.thumbnailImg && (
+            <img src={project.thumbnailImg} alt={project.title} className="projectImage" />
+          )}
         </div>
-        {project.available && (
-          <div className="hoverOverlay">
-            <span className="hoverLabel">View Project</span>
-          </div>
-        )}
-        {!project.available && (
-          <div className="soonBadge">Soon</div>
-        )}
       </div>
-      <div className="cardTitle">
-        <span className={`cardTitleText ${project.available ? "available" : "unavailable"}`}>
+      <div className="cardInfo">
+        <h3 className={`cardInfoTitle ${project.available ? "available" : "unavailable"}`}>
           {project.title}
-        </span>
+        </h3>
+        <p className="cardInfoDesc">{project.description}</p>
       </div>
     </CardWrapper>
   );
@@ -149,7 +143,6 @@ export default function Home() {
   return (
     <div className="page">
 
-      {/* Top Nav */}
       <motion.header
         className="nav"
         initial={{ opacity: 0 }}
@@ -159,7 +152,6 @@ export default function Home() {
         <span className="logo">Grace Ilori</span>
       </motion.header>
 
-      {/* Hero Title */}
       <motion.div
         className="hero"
         initial={{ opacity: 0, y: -10 }}
@@ -170,34 +162,32 @@ export default function Home() {
         <p className="heroSubtitle">Human Computer Interaction II</p>
       </motion.div>
 
-      {/* Projects Grid */}
+      <motion.img
+        src="/assets/general/custom-divider.png"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      />
+
       <motion.div variants={containerVariants} initial="hidden" animate="show">
         <div className="grid">
           {mainProjects.map((project, i) => {
-            const cellClass = [
-              "gridCell",
-              i === 0 ? "dividerRight" : "",
-              i === 1 ? "dividerRightAlt" : "",
-            ].join(" ");
             return (
-              <motion.div key={project.id} variants={itemVariants} className={cellClass}>
-                <ProjectCard project={project} thumbnailClass="thumbnail" />
+              <motion.div key={project.id} variants={itemVariants} className="gridCell">
+                <ProjectCard project={project} />
               </motion.div>
             );
           })}
         </div>
       </motion.div>
 
-      {/* Horizontal Divider */}
       <motion.img
-        src="/assets/custom-divider.png"
+        src="/assets/general/custom-divider.png"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
       />
 
-
-      {/* Bonus Section */}
       <motion.div variants={containerVariants} initial="hidden" animate="show">
         <div className="bonusGrid">
           {bonusProjects.map((project, i) => (

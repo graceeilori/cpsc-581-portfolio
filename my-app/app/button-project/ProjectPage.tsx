@@ -7,7 +7,6 @@ export default function ProjectPage() {
     return (
         <ProjectLayout
             className="projectPage"
-            heroImage="/assets/button-project/project-1-hero.png"
         >
             <div className="projectTitleSection">
                 <h1 className="titleText">A Family of Buttons</h1>
@@ -19,6 +18,10 @@ export default function ProjectPage() {
                     <div className="summaryItem">
                         <span className="summaryLabel">Tools &amp; Tech</span>
                         <span className="summaryValue">Figma, Inkscape, React</span>
+                    </div>
+                    <div className="summaryItem">
+                        <span className="summaryLabel">Team</span>
+                        <span className="summaryValue">Grace, Chris, JJ, Caleb</span>
                     </div>
                 </div>
                 <Link href="/" className="cancelBtn" aria-label="Back to home">
@@ -189,7 +192,7 @@ export default function ProjectPage() {
 
                 <div className="pp-video-container">
                     <video controls preload="none">
-                        <source src="/assets/CPSC581_FamilyOfButtons_group2.mp4" type="video/mp4" />
+                        <source src="/assets/button-project/project-1-demo-video.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -217,11 +220,6 @@ export default function ProjectPage() {
                             cpsc-button-project.vercel.app
                         </a>
                     </div>
-                </div>
-
-                <div className="pp-team-row">
-                    <span className="pp-team-label">Team</span>
-                    <span className="pp-team-names">Grace, Chris, JJ, Caleb</span>
                 </div>
             </section>
 
