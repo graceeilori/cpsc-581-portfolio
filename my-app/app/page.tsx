@@ -203,43 +203,41 @@ const shedCategories = [
   {
     label: "Design",
     tools: [
-      { name: "Figma", tip: "Button Project, RBrick, KDpredict", type: "design" },
-      { name: "Inkscape", tip: "Button Project — planet design", type: "design" },
-      { name: "Blender", tip: "Convivium 3D models", type: "design" },
-      { name: "TinkerCAD", tip: "Convivium concept models", type: "design" },
+      { name: "Figma", tip: "Family, RBrick, Portfolio", type: "design" },
+      { name: "Inkscape", tip: "A Family of Buttons", type: "design" },
+      { name: "TinkerCAD", tip: "Convivium concept models, RBrick 3D environment exploration", type: "design" },
+      { name: "BrickLink Studio", tip: "RBrick 3D environment exploration", type: "design" },
     ],
   },
   {
     label: "Code",
     tools: [
-      { name: "Next.js", tip: "RBrick dashboards", type: "" },
-      { name: "React", tip: "Button Project, RBrick", type: "" },
-      { name: "TypeScript", tip: "RBrick", type: "" },
-      { name: "Three.js", tip: "RBrick CAD environment", type: "" },
-      { name: "Tailwind CSS", tip: "RBrick", type: "" },
-      { name: "Socket.IO", tip: "RBrick real-time layer", type: "" },
-      { name: "CSS / HTML", tip: "Portfolio, Button Project", type: "" },
+      { name: "Next.js", tip: "Family, RBrick, Portfolio", type: "" },
+      { name: "React", tip: "Family, RBrick, Portfolio", type: "" },
+      { name: "TypeScript", tip: "Family, RBrick, Portfolio", type: "" },
+      { name: "Three.js", tip: "RBrick", type: "" },
+      { name: "Tailwind CSS", tip: "Family, RBrick, Portfolio", type: "" },
+      { name: "Socket.IO", tip: "RBrick", type: "" },
+      { name: "HTML/CSS", tip: "Family, RBrick, Portfolio", type: "" },
     ],
   },
   {
     label: "Hardware & Sensing",
     tools: [
       { name: "Arduino Nano", tip: "Convivium", type: "" },
-      { name: "RFID", tip: "Convivium dispenser", type: "" },
-      { name: "FSR", tip: "Convivium induction mat", type: "" },
-      { name: "Web Speech API", tip: "RBrick voice recognition", type: "" },
-      { name: "WS2812B LEDs", tip: "Convivium pot", type: "" },
-      { name: "Nodemailer", tip: "RBrick haptic notifications", type: "" },
+      { name: "RFID", tip: "Convivium", type: "" },
+      { name: "FSR", tip: "Convivium", type: "" },
+      { name: "Web Speech API", tip: "RBrick", type: "" },
+      { name: "WS2812B LEDs", tip: "Convivium", type: "" },
+      { name: "Nodemailer", tip: "RBrick", type: "" },
     ],
   },
   {
     label: "Research & Process",
     tools: [
-      { name: "Heuristic Evaluation", tip: "KDpredict", type: "research" },
       { name: "Storyboarding", tip: "Convivium", type: "research" },
-      { name: "10+10 Sketching", tip: "Button Project", type: "research" },
-      { name: "Frame-Diverge-Converge", tip: "Convivium", type: "research" },
-      { name: "Think-Aloud", tip: "KDpredict", type: "research" },
+      { name: "Sketching", tip: "Family, RBrick, Convinium, Portfolio", type: "research" },
+      { name: "Frame-Diverge-Converge", tip: "RBrick, Convivium", type: "research" },
     ],
   },
 ];
@@ -442,7 +440,14 @@ export default function Home() {
             transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
           >
             <div className="shedPopupHeader">
-              <h2 className="shedPopupTitle">The Shed</h2>
+              <div>
+                <h2 className="shedPopupTitle">
+                  The <span>Shed</span>
+                </h2>
+                <p className="cornerSubtitle">
+                  Arsenal for the course.<br />
+                </p>
+              </div>
               <button className="bonusCloseBtn" onClick={close}>Close ✕</button>
             </div>
 
@@ -478,7 +483,7 @@ export default function Home() {
             <div className="cornerDrawerHeader">
               <div>
                 <h2 className="cornerDrawerTitle">
-                  The<br /><span>Corner</span>
+                  The <span>Corner</span>
                 </h2>
                 <p className="cornerSubtitle">
                   Sketches and scribbles from class activities.<br />

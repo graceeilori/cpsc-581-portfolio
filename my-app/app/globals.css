@@ -1496,9 +1496,14 @@
 
   .shedPopupTitle {
     font-family: var(--font-prata), Georgia, serif;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 400;
     font-style: italic;
+    color: #1A1A1A;
+  }
+
+  .shedPopupTitle span {
+    color: #4497A1;
   }
 
   .shedCategory {
