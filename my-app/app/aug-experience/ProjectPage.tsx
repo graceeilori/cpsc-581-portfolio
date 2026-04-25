@@ -31,7 +31,12 @@ export default function ProjectPage() {
                     </div>
                     <div className="summaryItem">
                         <span className="summaryLabel">Team</span>
-                        <span className="summaryValue">Grace, Chris, JJ, Caleb</span>
+                        <span className="summaryValue">
+                            <a href="https://github.com/graceeilori" target="_blank" rel="noopener noreferrer">Grace</a>,{" "}
+                            <a href="https://github.com/ChristianN517" target="_blank" rel="noopener noreferrer">Chris</a>,{" "}
+                            <a href="https://github.com/Jnels23" target="_blank" rel="noopener noreferrer">JJ</a>,{" "}
+                            <a href="https://github.com/CalebMelin" target="_blank" rel="noopener noreferrer">Caleb</a>
+                        </span>
                     </div>
                 </div>
                 <Link href="/" className="cancelBtn" aria-label="Back to home">
