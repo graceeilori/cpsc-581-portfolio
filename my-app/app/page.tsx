@@ -334,7 +334,7 @@ export default function Home() {
 
       {/*  Main project grid  */}
       <motion.div variants={containerVariants} initial="hidden" animate="show">
-        <div className="grid">
+        <div className="projectGrid">
           {mainProjects.map((project) => (
             <motion.div key={project.id} variants={itemVariants} className="gridCell">
               <ProjectCard project={project} />
