@@ -41,6 +41,9 @@ export const metadata: Metadata = {
   title: "CPSC 581 Portfolio",
   description:
     "An interactive portfolio showcasing Human-Computer Interaction projects from CPSC 581.",
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
     title: "CPSC 581 Portfolio",
     description:
